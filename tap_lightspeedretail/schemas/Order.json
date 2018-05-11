@@ -1,0 +1,122 @@
+{
+	"title": "Order",
+  	"type": ["null", "object"],
+  	"properties": {
+  		"self": {
+      		"type": ["null", "string"],
+      		"format": "uri"
+    	},
+    	"orderID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"orderedDate": {
+      		"type": [
+        		"null",
+        		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"receivedDate": {
+      		"type": [
+        		"null",
+        		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"shipInstructions": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"stockInstructions": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"shipCost": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"otherCost": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"complete": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"archived": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"discount": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"totalDiscount": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"totalQuantity": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"arrivalDate": {
+      		"type": [
+        		"null",
+        		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"timeStamp": {
+      		"type": [
+        		"null",
+        		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"refNum": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"vendorID": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"noteID": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"shopID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	}
+	}
+}

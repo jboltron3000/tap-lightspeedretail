@@ -1,0 +1,119 @@
+{
+	"title": "Shop",
+  	"type": ["null", "object"],
+  	"properties": {
+  		"self": {
+      		"type": ["null", "string"],
+      		"format": "uri"
+    	},
+    	"shopID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"name": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"serviceRate": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"timeZone": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"taxLabor": {
+      		"type": [
+        		"null",
+        		"boolean"
+      		]
+    	},
+    	"labelTitle": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"labelMsrp": {
+      		"type": [
+        		"null",
+        		"boolean"
+      		]
+    	},
+    	"archived": {
+      		"type": [
+        	"null",
+        	"boolean"
+      		]
+    	},
+    	"timeStamp": {
+      		"type": [
+        		"null",
+        		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"companyRegistrationNumber": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"vatNumber": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"zebraBrowserPrint": {
+      		"type": [
+        		"null",
+        		"boolean"
+      		]
+    	},
+    	"contactID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"taxCategoryID": {
+      		"type": [
+        	"null",
+        	"integer"
+      		]
+    	},
+    	"receiptSetupID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"ccGatewayID": {
+      		"type": [
+        	"null",
+        	"integer"
+      		]
+    	},
+    	"gatewayConfigID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"priceLevelID": {
+      		"type": [
+        	"null",
+        	"integer"
+      		]
+    	}
+	}
+}

@@ -1,0 +1,71 @@
+{
+	"title": "OrderLine",
+  	"type": ["null", "object"],
+  	"properties": {
+  		"self": {
+      		"type": ["null", "string"],
+      		"format": "uri"
+    	},
+    	"orderLineID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"quantity": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"price": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"originalPrice": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"checkedIn": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"numReceived": {
+      		"type": [
+        	"null",
+        	"integer"
+      		]
+    	},
+    	"timeStamp": {
+      		"type": [
+        		"null",
+        		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"total": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"orderID": {
+      		"type": [
+        		"null",
+        		"boolean"
+      		]
+    	},
+    	"itemID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	}
+	}
+}
