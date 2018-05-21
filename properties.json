@@ -1,9 +1,9 @@
 {
   "streams": [
     {
-      "tap_stream_id": "Sale",
+      "tap_stream_id": "Order",
       "key_properties": [
-        "saleID"
+        "orderID"
       ],
       "schema": {
         "properties": {
@@ -15,11 +15,98 @@
               "string"
             ]
           },
-          "saleId": {
+          "orderID": {
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
+              "string"
+            ]
+          },
+          "orderedDate": {
+            "inclusion": "available",
+            "format": "date-time",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "receivedDate": {
+            "inclusion": "available",
+            "format": "date-time",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "shipInstructions": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "stockInstructions": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "shipCost": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "otherCost": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "complete": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "archived": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "discount": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "totalDiscount": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "totalQuantity": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "arrivalDate": {
+            "inclusion": "available",
+            "format": "date-time",
+            "type": [
+              "null",
+              "string"
             ]
           },
           "timeStamp": {
@@ -30,287 +117,32 @@
               "string"
             ]
           },
-          "discountPercent": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "number"
-            ]
-          },
-          "completed": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "archived": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "voided": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "enablePromotions": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "isTaxInclusive": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "createTime": {
-            "inclusion": "available",
-            "format": "date-time",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "updateTime": {
-            "inclusion": "available",
-            "format": "date-time",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "completeTime": {
-            "inclusion": "available",
-            "format": "date-time",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "referenceNumber": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "referenceNumberSource": {
+          "refNum": {
             "inclusion": "available",
             "type": [
               "null",
               "string"
             ]
           },
-          "tax1Rate": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "tax2Rate": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "change": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "receiptPreference": {
+          "vendorID": {
             "inclusion": "available",
             "type": [
               "null",
               "string"
             ]
           },
-          "displayableSubtotal": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "ticketNumber": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "calcDiscount": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "calcTotal": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "calcSubtotal": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "calcTaxable": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "calcNonTaxable": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "calcAvgCost": {
+          "noteID": {
             "inclusion": "available",
             "type": [
               "null",
               "string"
-            ]
-          },
-          "calcFIFOCost": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "calcTax1": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "calcTax2": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "calcPayments": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "total": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "totalDue": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "displayableTotal": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "balance": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "customerID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "discountID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "employeeID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "quoteID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "registerID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "shipToID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
             ]
           },
           "shopID": {
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
-            ]
-          },
-          "taxCategoryID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "taxTotal": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
+              "string"
             ]
           }
         },
@@ -320,7 +152,7 @@
           "object"
         ]
       },
-      "stream": "Sale"
+      "stream": "Order"
     },
     {
       "tap_stream_id": "Item",
@@ -341,49 +173,49 @@
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
+              "string"
             ]
           },
           "systemSku": {
             "inclusion": "available",
             "type": [
               "null",
-              "boolean"
+              "string"
             ]
           },
           "defaultCost": {
             "inclusion": "available",
             "type": [
               "null",
-              "number"
+              "string"
             ]
           },
           "avgCost": {
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
+              "string"
             ]
           },
           "discountable": {
             "inclusion": "available",
             "type": [
               "null",
-              "boolean"
+              "string"
             ]
           },
           "tax": {
             "inclusion": "available",
             "type": [
               "null",
-              "boolean"
+              "string"
             ]
           },
           "archived": {
             "inclusion": "available",
             "type": [
               "null",
-              "boolean"
+              "string"
             ]
           },
           "itemType": {
@@ -397,7 +229,7 @@
             "inclusion": "available",
             "type": [
               "null",
-              "boolean"
+              "string"
             ]
           },
           "description": {
@@ -411,7 +243,7 @@
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
+              "string"
             ]
           },
           "upc": {
@@ -462,59 +294,59 @@
             "inclusion": "available",
             "type": [
               "null",
-              "boolean"
+              "string"
             ]
           },
           "categoryID": {
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
+              "string"
             ]
           },
           "taxClassID": {
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
+              "string"
             ]
           },
           "departmentID": {
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
+              "string"
             ]
           },
           "itemMatrixID": {
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
+              "string"
             ]
           },
           "manufacturerID": {
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
+              "string"
             ]
           },
           "seasonID": {
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
+              "string"
             ]
           },
           "defaultVendorID": {
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
+              "string"
             ]
           },
-          "Prices": {
+          "ItemShops": {
             "inclusion": "available"
           }
         },
@@ -527,9 +359,9 @@
       "stream": "Item"
     },
     {
-      "tap_stream_id": "Order",
+      "tap_stream_id": "Customer",
       "key_properties": [
-        "orderID"
+        "customerID"
       ],
       "schema": {
         "properties": {
@@ -541,14 +373,21 @@
               "string"
             ]
           },
-          "orderID": {
+          "firstName": {
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
+              "string"
             ]
           },
-          "orderedDate": {
+          "lastName": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "dob": {
             "inclusion": "available",
             "format": "date-time",
             "type": [
@@ -556,204 +395,15 @@
               "string"
             ]
           },
-          "receivedDate": {
-            "inclusion": "available",
-            "format": "date-time",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "shipInstructions": {
+          "title": {
             "inclusion": "available",
             "type": [
               "null",
               "string"
             ]
           },
-          "stockInstructions": {
+          "company": {
             "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "shipCost": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "otherCost": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "complete": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "archived": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "discount": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "totalDiscount": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "totalQuantity": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "arrivalDate": {
-            "inclusion": "available",
-            "format": "date-time",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "timeStamp": {
-            "inclusion": "available",
-            "format": "date-time",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "refNum": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "vendorID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "noteID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "shopID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        },
-        "inclusion": "available",
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "stream": "Order"
-    },
-    {
-      "tap_stream_id": "Shop",
-      "key_properties": [
-        "shopID"
-      ],
-      "schema": {
-        "properties": {
-          "self": {
-            "inclusion": "available",
-            "format": "uri",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "shopID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "name": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "serviceRate": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "timeZone": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "taxLabor": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "labelTitle": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "labelMsrp": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "archived": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "timeStamp": {
-            "inclusion": "available",
-            "format": "date-time",
             "type": [
               "null",
               "string"
@@ -763,24 +413,31 @@
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
+              "string"
             ]
           },
           "vatNumber": {
             "inclusion": "available",
             "type": [
               "null",
-              "integer"
+              "string"
             ]
           },
-          "zebraBrowserPrint": {
+          "creditAccountID": {
             "inclusion": "available",
             "type": [
               "null",
-              "boolean"
+              "integer"
             ]
           },
-          "contactID": {
+          "customerTypeID": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "discountID": {
             "inclusion": "available",
             "type": [
               "null",
@@ -794,101 +451,14 @@
               "integer"
             ]
           },
-          "receiptSetupID": {
+          "customerID": {
             "inclusion": "available",
             "type": [
               "null",
               "integer"
             ]
           },
-          "ccGatewayID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "gatewayConfigID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "priceLevelID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        },
-        "inclusion": "available",
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "stream": "Shop"
-    },
-    {
-      "tap_stream_id": "OrderLine",
-      "key_properties": [
-        "orderLineID"
-      ],
-      "schema": {
-        "properties": {
-          "self": {
-            "inclusion": "available",
-            "format": "uri",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "orderLineID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "quantity": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "price": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "originalPrice": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "checkedIn": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "numReceived": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "timeStamp": {
+          "createTime": {
             "inclusion": "available",
             "format": "date-time",
             "type": [
@@ -896,60 +466,9 @@
               "string"
             ]
           },
-          "total": {
+          "timeStamp": {
             "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "orderID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "itemID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        },
-        "inclusion": "available",
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "stream": "OrderLine"
-    },
-    {
-      "tap_stream_id": "Vendor",
-      "key_properties": [
-        "vendorID"
-      ],
-      "schema": {
-        "properties": {
-          "self": {
-            "inclusion": "available",
-            "format": "uri",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "vendorID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "name": {
-            "inclusion": "available",
+            "format": "date-time",
             "type": [
               "null",
               "string"
@@ -961,56 +480,6 @@
               "null",
               "boolean"
             ]
-          },
-          "accountNumber": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "priceLevel": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "updatePrice": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "updateCost": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "updateDescription": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "shareSellThrough": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "timeStamp": {
-            "inclusion": "available",
-            "format": "date-time",
-            "type": [
-              "null",
-              "string"
-            ]
           }
         },
         "inclusion": "available",
@@ -1019,7 +488,7 @@
           "object"
         ]
       },
-      "stream": "Vendor"
+      "stream": "Customer"
     }
   ]
 }

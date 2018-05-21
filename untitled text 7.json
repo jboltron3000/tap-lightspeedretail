@@ -9,7 +9,7 @@
     	"saleId": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"timeStamp": {
@@ -22,37 +22,37 @@
     	"discountPercent": {
       		"type": [
         		"null",
-        		"string"
+        		"number"
       		]
     	},
     	"completed": {
       		"type": [
         		"null",
-        		"string"
+        		"boolean"
       		]
     	},
     	"archived": {
       		"type": [
         		"null",
-        		"string"
+        		"boolean"
       		]
     	},
     	"voided": {
       		"type": [
         	"null",
-        	"string"
+        	"boolean"
       		]
     	},
     	"enablePromotions": {
       		"type": [
         	"null",
-        	"string"
+        	"boolean"
       		]
     	},
     	"isTaxInclusive": {
       		"type": [
         		"null",
-        		"string"
+        		"boolean"
       		]
     	},
     	"createTime": {
@@ -76,13 +76,13 @@
       		],
       	"format": "date-time"
     	},
-    	"referencestring": {
+    	"referenceNumber": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
-    	"referencestringSource": {
+    	"referenceNumberSource": {
       		"type": [
         		"null",
         		"string"
@@ -91,19 +91,19 @@
     	"tax1Rate": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"tax2Rate": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"change": {
       		"type": [
         	"null",
-        	"string"
+        	"integer"
       		]
     	},
     	"receiptPreference": {
@@ -115,43 +115,43 @@
     	"displayableSubtotal": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
-    	"ticketstring": {
+    	"ticketNumber": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"calcDiscount": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"calcTotal": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"calcSubtotal": {
       		"type": [
         	"null",
-        	"string"
+        	"integer"
       		]
     	},
     	"calcTaxable": {
       		"type": [
         	"null",
-        	"string"
+        	"integer"
       		]
     	},
     	"calcNonTaxable": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"calcAvgCost": {
@@ -163,104 +163,109 @@
     	"calcFIFOCost": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"calcTax1": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"calcTax2": {
       		"type": [
         	"null",
-        	"string"
+        	"integer"
       		]
     	},
     	"calcPayments": {
       		"type": [
         	"null",
-        	"string"
+        	"integer"
       		]
     	},
     	"total": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"totalDue": {
       		"type": [
         	"null",
-        	"string"
+        	"integer"
       		]
     	},
     	"displayableTotal": {
       		"type": [
         	"null",
-        	"string"
+        	"integer"
       		]
     	},
     	"balance": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"customerID": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"discountID": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"employeeID": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"quoteID": {
       		"type": [
         	"null",
-        	"string"
+        	"integer"
       		]
     	},
     	"registerID": {
       		"type": [
         	"null",
-        	"string"
+        	"integer"
       		]
     	},
     	"shipToID": {
       		"type": [
         		"null",
-        		"string"
+        		"integer"
       		]
     	},
     	"shopID": {
       		"type": [
         	"null",
-        	"string"
+        	"integer"
       		]
     	},
     	"taxCategoryID": {
       		"type": [
         	"null",
-        	"string"
+        	"integer"
       		]
     	},
     	"taxTotal": {
       		"type": [
         	"null",
-        	"string"
+        	"integer"
       		]
     	}
 	}
+	
+	
+	
+	
+	curl -H 'Authorization: Bearer 2f262050de93c1ffc853ff6e85fb6b8de1227db4' 'https://api.merchantos.com/API/Account/160476/Item.json?timeStamp%3E%3C04/11/2018,05/11/2018'
 }

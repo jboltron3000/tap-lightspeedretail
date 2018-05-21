@@ -1,0 +1,212 @@
+{
+	"title": "Sales Lines",
+  	"type": "object",
+  	"properties":{
+    	"saleLineid": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"createTime": {
+      		"type": [
+        		"null",
+     	   		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"timeStamp": {
+      		"type": [
+        		"null",
+     	   		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"unitQuantity": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"unitPrice": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"normalUnitPrice": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+     	"discountAmount": {
+      		"type": [
+        		"null",
+        		"number"
+      		]
+    	},
+     	"discountPercent": {
+      		"type": [
+        		"null",
+        		"number"
+      		]
+    	},
+     	"avgCost": {
+      		"type": [
+        		"null",
+        		"number"
+      		]
+    	},
+     	"fifoCost": {
+      		"type": [
+        		"null",
+        		"number"
+      		]
+    	},
+     	"tax": {
+      		"type": [
+        		"null",
+        		"boolean"
+      		]
+    	},	
+     	"tax1Rate": {
+      		"type": [
+        		"null",
+        		"integer"
+      			]
+    	},
+    	"tax2Rate": {
+      		"type": [
+        		"null",
+        		"integer"
+      			]
+    	},
+    	"isLayaway": {
+      		"type": [
+        		"null",
+        		"boolean"
+      		]
+    	},	
+    	"isWorkorder": {
+      		"type": [
+        		"null",
+        		"boolean"
+      		]
+    	},	
+    	"isSpecialOrder": {
+      		"type": [
+        		"null",
+        		"boolean"
+      		]
+    	},
+    	"displayableSubtotal": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"displayableUnitPrice": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"calcLineDiscount": {
+      		"type": [
+        		"null",
+        		"number"
+      		]
+    	},
+     	"calcTransactionDiscount": {
+      		"type": [
+        		"null",
+        		"number"
+      		]
+    	},
+     	"calcTotal": {
+      		"type": [
+        		"null",
+        		"number"
+      		]
+    	},
+    	"calcSubtotal": {
+      		"type": [
+        		"null",
+        		"number"
+      		]
+    	},
+    	"calcTax1": {
+      		"type": [
+        		"null",
+        		"number"
+      		]
+    	},
+    	"calcTax2": {
+      		"type": [
+        		"null",
+        		"number"
+      		]
+    	},
+    	"taxClassID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"customerID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"discountID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"employeeID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"itemID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"noteID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"parentSaleLineID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"shopID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"taxCategoryID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	},
+    	"saleID": {
+      		"type": [
+        		"null",
+        		"integer"
+      		]
+    	}	
+	}
+}

@@ -9,37 +9,37 @@
     	"orderLineID": {
       		"type": [
         		"null",
-        		"integer"
+        		"string"
       		]
     	},
     	"quantity": {
       		"type": [
         		"null",
-        		"integer"
+        		"string"
       		]
     	},
     	"price": {
       		"type": [
         		"null",
-        		"integer"
+        		"string"
       		]
     	},
     	"originalPrice": {
       		"type": [
         		"null",
-        		"integer"
+        		"string"
       		]
     	},
     	"checkedIn": {
       		"type": [
         		"null",
-        		"integer"
+        		"string"
       		]
     	},
     	"numReceived": {
       		"type": [
         	"null",
-        	"integer"
+        	"string"
       		]
     	},
     	"timeStamp": {
@@ -52,19 +52,19 @@
     	"total": {
       		"type": [
         		"null",
-        		"integer"
+        		"string"
       		]
     	},
     	"orderID": {
       		"type": [
         		"null",
-        		"boolean"
+        		"string"
       		]
     	},
     	"itemID": {
       		"type": [
         		"null",
-        		"integer"
+        		"string"
       		]
     	}
 	}

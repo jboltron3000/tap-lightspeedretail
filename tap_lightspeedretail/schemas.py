@@ -7,13 +7,23 @@ from singer import utils
 class IDS(object):
     table1 = "Order"
     table2 = "Item"
+    table3 = "Customer"
+    table4 = "Sale"
+    table5 = "SaleLine"
+    table6 = "Shop"
+    table7 = "Vendor"
 	
 
-stream_ids = ["Order", "Item"]
+stream_ids = ["Order", "Item", "Customer", "Sale", "SaleLine", "Shop", "Vendor"]
 
 pk_fields = {
     IDS.table1: ["orderID"],
 	IDS.table2: ["itemID"],
+	IDS.table3: ["customerID"],
+	IDS.table4: ["saleID"],
+	IDS.table5: ["saleLineID"],
+	IDS.table6: ["shopID"],
+	IDS.table7: ["vendorID"],
 }
 ##
 def get_abs_path(path):

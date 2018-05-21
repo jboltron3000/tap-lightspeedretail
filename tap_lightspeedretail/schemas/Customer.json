@@ -1,58 +1,90 @@
 {
-	"title": "Shop",
+	"title": "Customer",
   	"type": ["null", "object"],
   	"properties": {
   		"self": {
       		"type": ["null", "string"],
       		"format": "uri"
     	},
-    	"shopID": {
+    	"firstName": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"name": {
+    	"lastName": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"serviceRate": {
+    	"dob": {
+      		"type": [
+        		"null",
+        		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"title": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"timeZone": {
+    	"company": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"taxLabor": {
+    	"companyRegistrationstring": {
+      		"type": [
+        	    "null",
+        	    "string"
+      		]
+    	},
+    	"vatstring": {
+      		"type": [
+        	    "null",
+        	    "string"
+      		]
+    	},
+    	"creditAccountID": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"labelTitle": {
-      		"type": [
-        	"null",
-        	"string"
-      		]
-    	},
-    	"labelMsrp": {
+    	"customerTypeID": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"archived": {
+    	"discountID": {
       		"type": [
-        	"null",
-        	"string"
+        		"null",
+        		"string"
       		]
+    	},
+    	"taxCategoryID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"customerID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"createTime": {
+      		"type": [
+        		"null",
+        		"string"
+      		],
+      	"format": "date-time"
     	},
     	"timeStamp": {
       		"type": [
@@ -61,59 +93,11 @@
       		],
       	"format": "date-time"
     	},
-    	"companyRegistrationstring": {
+    	"archived": {
       		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"vatstring": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"zebraBrowserPrint": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"contactID": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"taxCategoryID": {
-      		"type": [
-        	"null",
-        	"string"
-      		]
-    	},
-    	"receiptSetupID": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"ccGatewayID": {
-      		"type": [
-        	"null",
-        	"string"
-      		]
-    	},
-    	"gatewayConfigID": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"priceLevelID": {
-      		"type": [
-        	"null",
-        	"string"
+        	    "null",
+        	    "string"
       		]
     	}
-	}
+    }
 }
