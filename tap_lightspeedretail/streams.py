@@ -16,20 +16,7 @@ def write_records(tap_stream_id, records):
 
 def sync_lists(ctx):
     for tap_stream_id in ctx.selected_stream_ids:
-        if tap_stream_id == "Item":
-            ctx.write_page_item(tap_stream_id)
-        elif tap_stream_id == "Customer":
-            ctx.write_page_customer(tap_stream_id)
-        elif tap_stream_id == "Sale":
-            ctx.write_page_sale(tap_stream_id)
-        elif tap_stream_id == "SaleLine":
-            ctx.write_page_saleLine(tap_stream_id)
-        elif tap_stream_id == "Shop":
-            ctx.write_page_shop(tap_stream_id)
-        elif tap_stream_id == "Vendor":
-            ctx.write_page_vendor(tap_stream_id)
-        else:
-            ctx.write_page_order(tap_stream_id)
+        ctx.write_page(tap_stream_id)
             
 
 class Stream(object):
@@ -46,11 +33,3 @@ class Stream(object):
         with metrics.record_counter(self.tap_stream_id) as counter:
             counter.increment(len(page))
 
-class Everything(Stream):
-    def __init__(self, *args, path, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.path = path
-
-    def sync(self, ctx):
-        page = ctx.client.request(self.tap_stream_id, "GET", self.path)
-        self.write_page(page)
