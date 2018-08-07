@@ -1,0 +1,163 @@
+{
+	"title": "Item Matrix",
+  	"type": ["null", "object"],
+  	"properties": {
+  		"self": {
+      		"type": ["null", "string"],
+      		"format": "uri"
+    	},
+    	"itemMatrixID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"description": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"tax": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"itemType": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"serialized": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"modelYear": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"archived": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"timeStamp": {
+      		"type": [
+        		"null",
+        		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"itemAttributeSetID": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"manufacturerID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"categoryID": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"defaultVendorID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"taxClassID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"seasonID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"departmentID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"TaxClass" : {
+    	    "taxClassID" : {
+    	        "type": [
+        		"null",
+        		"string"
+      		    ]
+    	    },
+    	    "name" : {
+    	        "type": [
+        		"null",
+        		"string"
+      		    ]
+    	    },
+    	    "timeStamp" : {
+    	        "type": [
+        		"null",
+     	   		"string"
+      		    ],
+      	    "format": "date-time"
+    	    }
+    	},	
+    	"Prices": {
+      		"ItemPrice": {
+      		        "type": [
+        	        "null",
+        	        "array"
+      		        ]
+      		    },
+      		 	"amount" : {
+      		 	    "type": [
+        	        "null",
+        	        "string"
+      		        ]
+      		    },
+      		    "useTypeID" : {
+      		 	    "type": [
+        	        "null",
+        	        "string"
+      		        ]
+      		    },
+      		    "useType" : {
+      		 	    "type": [
+        	        "null",
+        	        "string"
+      		        ]
+      		    }
+      	},
+      	"attribute1Values": {
+      		"type": [
+        		"null",
+        		"array",
+        		"string"
+      		]
+    	},
+    	"attribute2Values": {
+      		"type": [
+        		"null",
+        		"array",
+        		"string"
+      		]
+    	}
+      	
+	}
+}

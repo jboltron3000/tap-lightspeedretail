@@ -207,6 +207,27 @@
         		"null",
         		"string"
       		]
+    	},
+    	"TaxClass" : {
+    	    "taxClassID" : {
+    	        "type": [
+        		"null",
+        		"string"
+      		    ]
+    	    },
+    	    "name" : {
+    	        "type": [
+        		"null",
+        		"string"
+      		    ]
+    	    },
+    	    "timeStamp" : {
+    	        "type": [
+        		"null",
+     	   		"string"
+      		    ],
+      	    "format": "date-time"
+    	    }
     	}	
 	}
 }

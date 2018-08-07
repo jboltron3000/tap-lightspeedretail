@@ -24,9 +24,9 @@ def _join(a, b):
 
 def generate_access_token():
     payload = {
-        'refresh_token': 'ee8992fc9ff87fad0e902bc7a4202c6871c5e27b',
-        'client_secret': '1c344475a985e5cd8feaf1d5532cf9122756c04bcdc9df1e6a1e0f5ee84b6804',
-        'client_id': 'a6b48d3ff56360d22a70e2a930d5c46b04765c4756d5e60c6a44441d7dbe5ae3',
+        'refresh_token': '61c11da3041a354016f035be607de4b07324207d',
+        "client_id": "1401747925fa658f4138f61cba102eca7f869d3eab5fcc49811b2f1c4f8cc2f3",
+        "client_secret": "0a8170d3b1d6bbae3c1cb0aeb56fc60e87c1002199414b21151f72f806e38eaf",
         'grant_type': 'refresh_token',
     }
 
@@ -96,31 +96,3 @@ class Client(object):
    
 
 
-class Paginator(object):
-    def __init__(self, client, page_num=0, order_by=None, items_key="Item"):
-        self.client = client
-        self.next_page_num = page_num
-        self.order_by = order_by
-        self.items_key = items_key
-
-    def pages(self, *args, **kwargs):
-        """Returns a generator which yields pages of data. When a given page is
-        yielded, the next_page_num property can be used to know what the index
-        of the next page is (useful for bookmarking).
-        :param args: Passed to Client.request
-        :param kwargs: Passed to Client.request
-        """
-        params = kwargs.pop("params", {}).copy()
-        while self.next_page_num is not None:
-            params["startAt"] = self.next_page_num
-            if self.order_by:
-                params["orderBy"] = self.order_by
-            response = self.client.request(*args, params=params, **kwargs)
-            page = response[self.items_key]
-            print(page.__sizeof__())
-            if len(page) < page.__sizeof__():
-                self.next_page_num = None
-            else:
-                self.next_page_num += 1
-            if page:
-                yield page

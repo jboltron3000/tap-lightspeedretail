@@ -12,9 +12,16 @@ class IDS(object):
     table5 = "SaleLine"
     table6 = "Shop"
     table7 = "Vendor"
+    table8 = "Category"
+    table9 = "ItemMatrix"
+    table10 = "Employee"
+    table11 = "Register"
+    table12 = "OrderLine"
+    table13 = "Transfer"
+    table14 = "TransferItem"
 	
 
-stream_ids = ["Order", "Item", "Customer", "Sale", "SaleLine", "Shop", "Vendor"]
+stream_ids = ["Order", "Item", "Customer", "Sale", "SaleLine", "Shop", "Vendor", "Category", "ItemMatrix", "Employee", "Register", "Transfer", "TransferItem", "OrderLine"]
 
 pk_fields = {
     IDS.table1: ["orderID"],
@@ -24,6 +31,14 @@ pk_fields = {
 	IDS.table5: ["saleLineID"],
 	IDS.table6: ["shopID"],
 	IDS.table7: ["vendorID"],
+	IDS.table8: ["categoryID"],
+	IDS.table9: ["itemMatrixID"],
+	IDS.table10: ["employeeID"],
+	IDS.table11: ["registerID"],
+	IDS.table12: ["orderLineID"],
+	IDS.table13: ["transferID"],
+	IDS.table14: ["transferItemID"]
+	
 }
 ##
 def get_abs_path(path):

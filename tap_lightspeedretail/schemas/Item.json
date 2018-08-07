@@ -1,257 +1,305 @@
 {
-	"title": "Item",
-  	"type": ["null", "object"],
-  	"properties": {
-  		"self": {
-      		"type": ["null", "string"],
-      		"format": "uri"
-    	},
-    	"itemID": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"systemSku": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"defaultCost": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"avgCost": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"discountable": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"tax": {
-      		"type": [
-        	"null",
-        	"string"
-      		]
-    	},
-    	"archived": {
-      		"type": [
-        	"null",
-        	"string"
-      		]
-    	},
-    	"itemType": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"serialized": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"description": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"modelYear": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"upc": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"ean": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"customSku": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"manufacturerSku": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"createTime": {
-      		"type": [
-        		"null",
-        		"string"
-      		],
-      	"format": "date-time"
-    	},
-    	"timeStamp": {
-      		"type": [
-        		"null",
-        		"string"
-      		],
-      	"format": "date-time"
-    	},
-    	"publishToEcom": {
-      		"type": [
-        	"null",
-        	"string"
-      		]
-    	},
-    	"categoryID": {
-      		"type": [
-        	"null",
-        	"string"
-      		]
-    	},
-    	"taxClassID": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"departmentID": {
-      		"type": [
-        	"null",
-        	"string"
-      		]
-    	},
-    	"itemMatrixID": {
-      		"type": [
-        	"null",
-        	"string"
-      		]
-    	},
-    	"manufacturerID": {
-      		"type": [
-        	"null",
-        	"string"
-      		]
-    	},
-    	"seasonID": {
-      		"type": [
-        	"null",
-        	"string"
-      		]
-    	},
-    	"defaultVendorID": {
-      		"type": [
-        	"null",
-        	"string"
-      		]
-    	},
-    	"ItemShops": {
-    	    "ItemShop": {
-      		    "type": [
-        	    "null",
-        	    "array"
-      		    ],
-      		"itemShopID": {
-      		    "type": [
-        	    "null",
-        	    "string"
-      		    ],
-      		 	"qoh" : {
-      		 	    "type": [
-        	        "null",
-        	        "string"
-      		        ]
-      		    },
-      		    "backorder" : {
-      		 	    "type": [
-        	        "null",
-        	        "string"
-      		        ]
-      		    },
-      		    "componentQoh" : {
-      		 	    "type": [
-        	        "null",
-        	        "string"
-      		        ]
-      		    },
-      		    "componentBackorder" : {
-      		 	    "type": [
-        	        "null",
-        	        "string"
-      		        ]
-      		    },
-      		    "reorderPoint" : {
-      		 	    "type": [
-        	        "null",
-        	        "string"
-      		        ]
-      		    },
-      		    "recordLevel" : {
-      		 	    "type": [
-        	        "null",
-        	        "string"
-      		        ]
-      		    },
-      		    "timeStamp" : {
-      		 	    "type": [
-        		    "null",
-        		    "string"
-      		        ],
-      	        "format": "date-time"
-    	        },
-      		    "itemID" : {
-      		 	    "type": [
-        	        "null",
-        	        "string"
-      		        ]
-      		    },
-      		    "shopID" : {
-      		 	    "type": [
-        	        "null",
-        	        "string"
-      		        ]
-      		    }
-    	    }
-    	},
-    	"Prices": {
-      		"ItemPrice": {
-      		        "type": [
-        	        "null",
-        	        "array"
-      		        ]
-      		    },
-      		 	"amount" : {
-      		 	    "type": [
-        	        "null",
-        	        "string"
-      		        ]
-      		    },
-      		    "useTypeID" : {
-      		 	    "type": [
-        	        "null",
-        	        "string"
-      		        ]
-      		    },
-      		    "useType" : {
-      		 	    "type": [
-        	        "null",
-        	        "string"
-      		        ]
-      		    }
-      		  }
-    	}
+  "title": "Item",
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "self": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "uri"
+    },
+    "itemID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "systemSku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "defaultCost": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "avgCost": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "discountable": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "archived": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "itemType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "serialized": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "modelYear": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "upc": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ean": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customSku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "manufacturerSku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "createTime": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "timeStamp": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "publishToEcom": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "categoryID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "taxClassID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "departmentID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "itemMatrixID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "manufacturerID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "seasonID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "defaultVendorID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ItemAttributes": {
+      "attribute1": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "attribute2": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "attribute3": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "itemAttributeSetID": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "ItemShops": {
+      "ItemShop": {
+        "type": [
+          "null",
+          "array"
+        ],
+        "itemShopID": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "qoh": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "backorder": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "componentQoh": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "componentBackorder": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "reorderPoint": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "recordLevel": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "timeStamp": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "itemID": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "shopID": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "Prices": {
+        "ItemPrice": {
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "amount": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "useTypeID": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "useType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "Tags": {
+        "@attributes": {
+          "count": {
+          "type": [
+            "null",
+            "string"
+            ]
+           }
+        },
+        "tag" : {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
     }
-}	
+  }
+}

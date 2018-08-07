@@ -1,0 +1,83 @@
+{
+	"title": "Transfer",
+  	"type": "object",
+  	"properties":{
+    	"transferID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"sent": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"received": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"note": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"archived": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"timeStamp": {
+      		"type": [
+        		"null",
+     	   		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"TransferFrom": {
+    		"sentOn" : {
+      			"type": [
+        			"null",
+        			"string"
+      			]
+    		},
+    		"employeeID" : {
+      			"type": [
+        			"null",
+        			"string"
+      			]
+    		},
+    		"shopID" : {
+      			"type": [
+        			"null",
+        			"string"
+      			]
+    		}
+    	},
+     	"TransferTo": {
+    		"needBy" : {
+      			"type": [
+        			"null",
+        			"string"
+      			]
+    		},
+    		"employeeID" : {
+      			"type": [
+        			"null",
+        			"string"
+      			]
+    		},
+    		"shopID" : {
+      			"type": [
+        			"null",
+        			"string"
+      			]
+    		}
+    	}
+	}
+}

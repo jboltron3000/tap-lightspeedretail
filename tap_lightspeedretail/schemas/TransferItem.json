@@ -1,38 +1,50 @@
 {
-	"title": "OrderLine",
+	"title": "TransferItem",
   	"type": "object",
   	"properties":{
-    	"orderLineID": {
+    	"transferItemID": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"quantity": {
+    	"toSend": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"price": {
+    	"toReceive": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"originalPrice": {
+    	"sent": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"checkedIn": {
+    	"received": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"numReceived": {
+    	"sentValue": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"receivedValue": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"comment": {
       		"type": [
         		"null",
         		"string"
@@ -45,13 +57,7 @@
       		],
       	"format": "date-time"
     	},
-    	"total": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"orderID": {
+    	"transferID": {
       		"type": [
         		"null",
         		"string"

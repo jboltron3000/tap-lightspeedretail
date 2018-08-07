@@ -3,263 +3,400 @@
   	"type": ["null", "object"],
   	"properties": {
   		"self": {
-      		"type": ["null", "string"],
+      		"type": ["null", "string", "object"],
       		"format": "uri"
     	},
     	"saleId": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"timeStamp": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		],
       	"format": "date-time"
     	},
     	"discountPercent": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"completed": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"archived": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"voided": {
       		"type": [
         	"null",
-        	"string"
+        	"string", 
+        	"object"
       		]
     	},
     	"enablePromotions": {
       		"type": [
         	"null",
-        	"string"
+        	"string", 
+        	"object"
       		]
     	},
     	"isTaxInclusive": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"createTime": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		],
       	"format": "date-time"
     	},
     	"updateTime": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		],
       	"format": "date-time"
     	},
     	"completeTime": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		],
       	"format": "date-time"
     	},
     	"referencestring": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"referencestringSource": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"tax1Rate": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"tax2Rate": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"change": {
       		"type": [
         	"null",
-        	"string"
+        	"string", 
+        	"object"
       		]
     	},
     	"receiptPreference": {
       		"type": [
         	"null",
-        	"string"
+        	"string", 
+        	"object"
       		]
     	},
     	"displayableSubtotal": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"ticketstring": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"calcDiscount": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"calcTotal": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"calcSubtotal": {
       		"type": [
         	"null",
-        	"string"
+        	"string", 
+        	"object"
       		]
     	},
     	"calcTaxable": {
       		"type": [
         	"null",
-        	"string"
+        	"string", 
+        	"object"
       		]
     	},
     	"calcNonTaxable": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"calcAvgCost": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"calcFIFOCost": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"calcTax1": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"calcTax2": {
       		"type": [
         	"null",
-        	"string"
+        	"string", 
+        	"object"
       		]
     	},
     	"calcPayments": {
       		"type": [
         	"null",
-        	"string"
+        	"string", 
+        	"object"
       		]
     	},
     	"total": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"totalDue": {
       		"type": [
         	"null",
-        	"string"
+        	"string", 
+        	"object"
       		]
     	},
     	"displayableTotal": {
       		"type": [
         	"null",
-        	"string"
+        	"string", 
+        	"object"
       		]
     	},
     	"balance": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"customerID": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"discountID": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"employeeID": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"quoteID": {
       		"type": [
         	"null",
-        	"string"
+        	"string", 
+        	"object"
       		]
     	},
     	"registerID": {
       		"type": [
         	"null",
-        	"string"
+        	"string", 
+        	"object"
       		]
     	},
     	"shipToID": {
       		"type": [
         		"null",
-        		"string"
+        		"string", 
+        		"object"
       		]
     	},
     	"shopID": {
       		"type": [
         	"null",
-        	"string"
+        	"string", 
+        	"object"
       		]
     	},
     	"taxCategoryID": {
       		"type": [
         	"null",
-        	"string"
+        	"string",
+        	"object"
       		]
     	},
+    	"Customer" : {
+    	    "type": [
+        		"null",
+        		"string",
+        	    "object"
+      		    ],
+      		"Contact" : {
+      		    "contactID" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "custom" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "noEmail" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "noPhone" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "noMail" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "timeStamp": {
+      		      "type": [
+        		  "null",
+        		  "string", 
+        		  "object"
+      		       ],
+      	       "format": "date-time"
+    	       },
+    	       "Addresses" : {
+    	           "ContactAddress" : {
+    	                "zip" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               }
+    	                }   
+    	            },
+    	        "Phones" : {
+    	            "ContactPhone" : {
+    	                "number" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               },
+      		            "useType" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               }
+    	            }   
+    	         },
+    	          "Emails" : {
+    	            "ContactEmail" : {
+    	                "address" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               },
+      		            "useType" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               }
+    	            }   
+    	         },
+    	         "Websites" : {
+    	             "type": [
+        		        "null",
+        		        "string"
+      		           ]
+    	         }
+    	       }
+      	  },
     	"taxTotal": {
       		"type": [
         	"null",
-        	"string"
+        	"string", 
+        	"object"
       		]
     	}
 	}

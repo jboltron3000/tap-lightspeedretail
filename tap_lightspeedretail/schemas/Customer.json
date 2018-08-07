@@ -28,7 +28,8 @@
     	"title": {
       		"type": [
         		"null",
-        		"string"
+        		"string",
+        		"object"
       		]
     	},
     	"company": {
@@ -43,7 +44,7 @@
         	    "string"
       		]
     	},
-    	"vatstring": {
+    	"vatNumber": {
       		"type": [
         	    "null",
         	    "string"

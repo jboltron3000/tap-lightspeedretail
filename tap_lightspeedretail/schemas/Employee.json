@@ -1,48 +1,30 @@
 {
-	"title": "Shop",
+	"title": "Employee",
   	"type": ["null", "object"],
   	"properties": {
   		"self": {
       		"type": ["null", "string"],
       		"format": "uri"
     	},
-    	"shopID": {
+    	"employeeID": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"name": {
+    	"firstName": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"serviceRate": {
+    	"lastName": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"timeZone": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"taxLabor": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"labelTitle": {
-      		"type": [
-        	"null",
-        	"string"
-      		]
-    	},
-    	"labelMsrp": {
+    	"lockOut": {
       		"type": [
         		"null",
         		"string"
@@ -50,8 +32,8 @@
     	},
     	"archived": {
       		"type": [
-        	"null",
-        	"string"
+        		"null",
+        		"string"
       		]
     	},
     	"timeStamp": {
@@ -61,59 +43,73 @@
       		],
       	"format": "date-time"
     	},
-    	"companyRegistrationstring": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"vatNumber": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"zebraBrowserPrint": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
     	"contactID": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"taxCategoryID": {
+    	"clockInEmployeeHoursID": {
       		"type": [
         	"null",
         	"string"
       		]
     	},
-    	"receiptSetupID": {
+    	"employeeRoleID": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"limitToShopID": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"ccGatewayID": {
-      		"type": [
-        	"null",
-        	"string"
-      		]
-    	},
-    	"gatewayConfigID": {
+    	"lastShopID": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"priceLevelID": {
+    	"lastSaleID": {
       		"type": [
-        	"null",
-        	"string"
+        		"null",
+        		"string"
       		]
+    	},
+    	"lastRegisterID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"EmployeeRole" : {
+    	    "employeeRoleID" : {
+    	        "type": [
+        		"null",
+        		"string"
+      		    ]
+    	    },
+    	    "name" : {
+    	        "type": [
+        		"null",
+        		"string"
+      		    ]
+    	    },
+    	    "system" : {
+    	        "type": [
+        		"null",
+        		"string"
+      		    ]
+    	    },
+    	    "archived" : {
+    	        "type": [
+        		"null",
+        		"string"
+      		    ]
+    	    }
     	}
-	}
+    }
 }

@@ -1,66 +1,71 @@
 {
-	"title": "OrderLine",
-  	"type": "object",
-  	"properties":{
-    	"orderLineID": {
+	"title": "Category",
+  	"type": ["null", "object"],
+  	"properties": {
+  		"self": {
+      		"type": ["null", "string"],
+      		"format": "uri"
+    	},
+    	"categoryID": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"quantity": {
+    	"name": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"price": {
+    	"nodeDepth": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"originalPrice": {
+    	"fullPathName": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"checkedIn": {
+    	"leftNode": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"numReceived": {
+    	"rightNode": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"createTime": {
       		"type": [
         		"null",
         		"string"
-      		]
+      		],
+      	"format": "date-time"
     	},
     	"timeStamp": {
       		"type": [
         		"null",
-     	   		"string"
+        		"string"
       		],
       	"format": "date-time"
     	},
-    	"total": {
+    	"parentID": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"orderID": {
+    	"Parent": {
       		"type": [
         		"null",
-        		"string"
-      		]
-    	},
-     	"itemID": {
-      		"type": [
-        		"null",
-        		"string"
+        		"object"
       		]
     	}
 	}

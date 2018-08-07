@@ -1,6 +1,5 @@
 import singer
 from .schemas import IDS
-from .http import Paginator
 import pdb
 
 LOGGER = singer.get_logger()
@@ -27,6 +26,13 @@ class Stream(object):
     SaleLine = [IDS.table5, ["saleLineID"]]
     Shop = [IDS.table6, ["shopID"]]
     Vendor = [IDS.table7, ["vendorID"]]
+    Category = [IDS.table8, ["categoryID"]]
+    ItemMatrix = [IDS.table9, ["itemMatrixID"]]
+    Employee = [IDS.table10, ["employeeID"]]
+    Register = [IDS.table11, ["registerID"]]
+    OrderLine = [IDS.table12, ["orderLineID"]]
+    Transfer = [IDS.table13, ["transferID"]]
+    TransferItem = [IDS.table14, ["transferItemID"]]
     
     def write_page(self, page):
         singer.write_records(self.tap_stream_id, page)

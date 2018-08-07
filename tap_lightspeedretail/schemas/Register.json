@@ -1,67 +1,58 @@
 {
-	"title": "OrderLine",
-  	"type": "object",
-  	"properties":{
-    	"orderLineID": {
+	"title": "Register",
+  	"type": ["null", "object"],
+  	"properties": {
+  		"self": {
+      		"type": ["null", "string"],
+      		"format": "uri"
+    	},
+    	"registerID": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"quantity": {
+    	"name": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"price": {
+    	"open": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"originalPrice": {
+    	"openTime": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"checkedIn": {
+    	"archived": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"numReceived": {
+    	"openEmployeeID": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"timeStamp": {
-      		"type": [
-        		"null",
-     	   		"string"
-      		],
-      	"format": "date-time"
-    	},
-    	"total": {
+    	"shopID": {
       		"type": [
         		"null",
         		"string"
       		]
     	},
-    	"orderID": {
+    	"ccTerminalID": {
       		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-     	"itemID": {
-      		"type": [
-        		"null",
-        		"string"
+        	"null",
+        	"string"
       		]
     	}
-	}
+    }
 }

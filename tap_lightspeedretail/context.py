@@ -25,6 +25,7 @@ class Context(object):
         self._catalog = None
         self.selected_stream_ids = None
         self.now = datetime.utcnow()
+        self.first_time = True
         
     @property
     def catalog(self):
@@ -43,11 +44,16 @@ class Context(object):
 
     def bookmark(self, path, stream_id):
         bookmark = self.state
+        #pdb.set_trace()
         for p in path:
             if p not in bookmark:
-                del bookmark[stream_id]
-                bookmark['type'] = "STATE"
-                bookmark[stream_id] = p  
+                if self.first_time:
+                    bookmark['type'] = "STATE"
+                    bookmark[stream_id] = p 
+                else:
+                    del bookmark[stream_id]
+                    bookmark['type'] = "STATE"
+                    bookmark[stream_id] = p  
         return bookmark
         
     def set_bookmark(self, path, val):
@@ -77,34 +83,51 @@ class Context(object):
     def write_page(self, stream_id):
         count = 100
         offset = 0
-        ext_time = singer.utils.now()
         path = []
-        ext_time = ext_time.timestamp()
-        ext_time = strict_rfc3339.timestamp_to_rfc3339_utcoffset(ext_time)
-        start_date = singer.utils.strptime_with_tz(self.state[stream_id])
-        end_date = (start_date + timedelta(+30))
+        ext_time = self.config['start_date']
+        if len(self.state) < 12:
+            start_date = singer.utils.strptime_with_tz(self.config['start_date'])
+        else:
+            first_time = False
+            start_date = singer.utils.strptime_with_tz(self.state[stream_id])
+        end_date = singer.utils.now()
         start_date = start_date.strftime('%m/%d/%Y')
         end_date = end_date.strftime('%m/%d/%Y')
         relation = ""
         if str(stream_id) == "Item":
-            relation = "load_relations=%5B%22Category%22%5D&"
+            relation = "&load_relations=%5B%22ItemShops%22%2C%22ItemAttributes%22%2C%22Tags%22%5D&timeStamp=%3E%3D," +start_date
         elif str(stream_id) == "Shop":
             relation = ""
+        elif str(stream_id) == "Sale":
+            relation = "&load_relations=%5B%22Customer.Contact%22%5D&timeStamp=%3E%3D," +start_date
+        elif str(stream_id) == "SaleLine":
+            relation = "&load_relations=%5B%22TaxClass%22%5D&timeStamp=%3E%3D," +start_date
+        elif str(stream_id) == "ItemMatrix":
+            relation = "&load_relations=%5B%22TaxClass%22%5D&timeStamp=%3E%3D," +start_date
+        elif str(stream_id) == "Employee":
+            relation = "&load_relations=%5B%22EmployeeRole%22%5D&timeStamp=%3E%3D," +start_date
+        elif str(stream_id) == "Register":
+            relation = ""
         else:
-            relation = "&"
+            relation = "&timeStamp=%3E%3D," +start_date
         while int(count) > int(offset) and (int(count) - int(offset)) > -100:
-            page = self.client.request(stream_id, "GET", "https://api.merchantos.com/API/Account/" + str(self.config['customer_ids']) + "/" + str(stream_id) + ".json?offset=" + str(offset) + str(relation) + "timeStamp=%3E%3C," +str(start_date)+ "," + str(end_date))
+            page = self.client.request(stream_id, "GET", "https://api.merchantos.com/API/Account/" + str(self.config['customer_ids']) + "/" + str(stream_id) + ".json?offset=" + str(offset) + relation)
             info = page['@attributes']
             data = page[str(stream_id)]
             count = info['count']
             offset = int(info['offset']) + 100
-            for item in data:
-                ext_time = item['timeStamp']
-                #ext_time = strict_rfc3339.timestamp_to_rfc3339_utcoffset(ext_time)
-                singer.write_record(stream_id, item)
-                path.append(ext_time)
+            for key in data:
+                if str(stream_id) == "Register": 
+                	pass
+                else: 
+                    if key['timeStamp'] >= ext_time:
+                        ext_time = key['timeStamp']
+                    else:
+                        pass
+                singer.write_record(stream_id, key)
                 with metrics.record_counter(stream_id) as counter:
                      counter.increment(len(page))
+            path.append(ext_time)
             self.update_start_date_bookmark(path, str(stream_id))
                 
             
