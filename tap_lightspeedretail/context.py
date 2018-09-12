@@ -26,6 +26,8 @@ class Context(object):
         self.selected_stream_ids = None
         self.now = datetime.utcnow()
         self.first_time = True
+        self.id = set()
+        self.recurse = False
         
     @property
     def catalog(self):
@@ -81,25 +83,40 @@ class Context(object):
         
 
     def write_page(self, stream_id):
+        self.recurse = False
+        transferid = ""
         count = 100
         offset = 0
         path = []
         ext_time = self.config['start_date']
-        if len(self.state) < 12:
+        if len(self.state) < 14:
             start_date = singer.utils.strptime_with_tz(self.config['start_date'])
         else:
             first_time = False
             start_date = singer.utils.strptime_with_tz(self.state[stream_id])
         end_date = singer.utils.now()
-        start_date = start_date.strftime('%m/%d/%Y')
+        if str(stream_id) == "Item":
+            start_date = start_date.strftime('%Y-%m-%d')
+        else:
+            start_date = start_date.strftime('%m/%d/%Y')
         end_date = end_date.strftime('%m/%d/%Y')
         relation = ""
         if str(stream_id) == "Item":
-            relation = "&load_relations=%5B%22ItemShops%22%2C%22ItemAttributes%22%2C%22Tags%22%5D&timeStamp=%3E%3D," +start_date
+            relation = "&load_relations=%5B%22ItemShops%22%2C+%22ItemAttributes%22%2C+%22Tags%22%2C+%22TaxClass%22%5D&or=timeStamp%3D%3E%2C" +start_date + "%7CItemShops.timeStamp%3D%3E%2C" +start_date
         elif str(stream_id) == "Shop":
             relation = ""
-        elif str(stream_id) == "Sale":
-            relation = "&load_relations=%5B%22Customer.Contact%22%5D&timeStamp=%3E%3D," +start_date
+        elif str(stream_id) == "Transfer":
+            relation = "&timeStamp=%3E%3D," +start_date
+            stream_id = "Inventory/Transfer"
+        elif str(stream_id) == "VendorReturn":
+            relation = "&timeStamp=%3E%3D," +start_date
+            stream_id = "DisplayTemplate/VendorReturn"
+        elif str(stream_id) == "TransferItem":
+            relation = "&timeStamp=%3E%3D," +start_date
+            transferid = self.id.pop()
+            stream_id = "Inventory/Transfer/" + transferid + "/TransferItems"
+        elif str(stream_id) == "Customer":
+            relation = "&load_relations=all&timeStamp=%3E%3D," +start_date
         elif str(stream_id) == "SaleLine":
             relation = "&load_relations=%5B%22TaxClass%22%5D&timeStamp=%3E%3D," +start_date
         elif str(stream_id) == "ItemMatrix":
@@ -110,15 +127,58 @@ class Context(object):
             relation = ""
         else:
             relation = "&timeStamp=%3E%3D," +start_date
-        while int(count) > int(offset) and (int(count) - int(offset)) > -100:
+        while (int(count) > int(offset) and (int(count) - int(offset)) >= -100) or (stream_id == ("Inventory/Transfer/" + transferid + "/TransferItems") and len(self.id) > 1):
             page = self.client.request(stream_id, "GET", "https://api.merchantos.com/API/Account/" + str(self.config['customer_ids']) + "/" + str(stream_id) + ".json?offset=" + str(offset) + relation)
+            if stream_id == "Inventory/Transfer/" + transferid + "/TransferItems":
+                stream_id = "TransferItem"
+                if len(self.id) < 1: 
+                    break
+                else:
+                    transferid = self.id.pop()
+            elif stream_id == "Inventory/Transfer":
+                stream_id = "Transfer"
+            elif stream_id == "DisplayTemplate/VendorReturn":
+                stream_id = "VendorReturn"
             info = page['@attributes']
-            data = page[str(stream_id)]
             count = info['count']
             offset = int(info['offset']) + 100
+            if int(count) == 0:
+                offset = 0
+                if len(self.id) < 1: 
+                    continue
+                else:
+                    transferid = self.id.pop()
+                stream_id = "Inventory/Transfer/" + transferid + "/TransferItems"
+                continue
+            elif int(count) <= 100:
+                offset = 300
+                data = page[str(stream_id)]  
+            else:
+                data = page[str(stream_id)]  
             for key in data:
                 if str(stream_id) == "Register": 
                 	pass
+                elif type(key) == str:
+                    if data['timeStamp'] >= ext_time:
+                        ext_time = data['timeStamp']
+                    else:
+                        pass
+                    singer.write_record(stream_id, data)
+                    with metrics.record_counter(stream_id) as counter:
+                         counter.increment(len(page))
+                    continue
+                elif str(stream_id) == "Transfer": 
+                    self.id.add(key['transferID'])
+                    if key['timeStamp'] >= ext_time:
+                        ext_time = key['timeStamp']
+                elif str(stream_id) == "Sale": 
+                    if key['updateTime'] >= ext_time:
+                        ext_time = key['updateTime']
+                elif str(stream_id) == "Item": 
+                    i = 0
+                    for i in range(len(key['ItemShops']['ItemShop'])):
+                        if key['ItemShops']['ItemShop'][i]['timeStamp'] >= ext_time:
+                            ext_time = key['ItemShops']['ItemShop'][i]['timeStamp']
                 else: 
                     if key['timeStamp'] >= ext_time:
                         ext_time = key['timeStamp']
@@ -129,6 +189,17 @@ class Context(object):
                      counter.increment(len(page))
             path.append(ext_time)
             self.update_start_date_bookmark(path, str(stream_id))
+            if stream_id == "Transfer":
+                stream_id = "Inventory/Transfer"
+            elif stream_id == "TransferItem":
+                offset = 0
+                stream_id = "Inventory/Transfer/" + transferid + "/TransferItems"
+            elif stream_id == "VendorReturn":
+                stream_id = "DisplayTemplate/VendorReturn"
+    
+            
+            
+            
                 
             
     def write_state(self):

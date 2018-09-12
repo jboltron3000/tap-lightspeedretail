@@ -346,6 +346,9 @@
               "string"
             ]
           },
+          "TaxClass": {
+            "inclusion": "available"
+          },
           "ItemAttributes": {
             "inclusion": "available"
           },
@@ -360,6 +363,113 @@
         ]
       },
       "stream": "Item"
+    },
+    {
+      "tap_stream_id": "VendorReturn",
+      "key_properties": [
+        "vendorReturnID"
+      ],
+      "schema": {
+        "properties": {
+          "self": {
+            "inclusion": "available",
+            "format": "uri",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "vendorReturnID": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "refNum": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "archived": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sentDate": {
+            "inclusion": "available",
+            "format": "date-time",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "shipCost": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "otherCost": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "vendorID": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "shopID": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "noteID": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Vendor": {
+            "inclusion": "available"
+          },
+          "Shop": {
+            "inclusion": "available"
+          },
+          "Note": {
+            "inclusion": "available"
+          },
+          "VendorReturnItems": {
+            "inclusion": "available"
+          }
+        },
+        "inclusion": "available",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "stream": "VendorReturn"
     },
     {
       "tap_stream_id": "Customer",
@@ -454,6 +564,12 @@
               "null",
               "string"
             ]
+          },
+          "Contact": {
+            "inclusion": "available"
+          },
+          "Note": {
+            "inclusion": "available"
           },
           "customerID": {
             "inclusion": "available",
@@ -835,14 +951,6 @@
             ]
           },
           "taxCategoryID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string",
-              "object"
-            ]
-          },
-          "Customer": {
             "inclusion": "available",
             "type": [
               "null",
@@ -1833,20 +1941,6 @@
               "string"
             ]
           },
-          "sent": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "received": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "note": {
             "inclusion": "available",
             "type": [
@@ -1869,82 +1963,7 @@
               "string"
             ]
           },
-          "TransferFrom": {
-            "inclusion": "available"
-          },
-          "TransferTo": {
-            "inclusion": "available"
-          }
-        },
-        "inclusion": "available",
-        "type": "object"
-      },
-      "stream": "Transfer"
-    },
-    {
-      "tap_stream_id": "TransferItem",
-      "key_properties": [
-        "transferItemID"
-      ],
-      "schema": {
-        "properties": {
-          "transferItemID": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "toSend": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "toReceive": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "sent": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "received": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "sentValue": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "receivedValue": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "comment": {
-            "inclusion": "available",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "timeStamp": {
+          "createTime": {
             "inclusion": "available",
             "format": "date-time",
             "type": [
@@ -1952,14 +1971,44 @@
               "string"
             ]
           },
-          "transferID": {
+          "status": {
             "inclusion": "available",
             "type": [
               "null",
               "string"
             ]
           },
-          "itemID": {
+          "sentOn": {
+            "inclusion": "available",
+            "format": "date-time",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "needBy": {
+            "inclusion": "available",
+            "format": "date-time",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sendingShopID": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sentByEmployeeID": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "receivingShopID": {
             "inclusion": "available",
             "type": [
               "null",
@@ -1968,9 +2017,12 @@
           }
         },
         "inclusion": "available",
-        "type": "object"
+        "type": [
+          "object",
+          "string"
+        ]
       },
-      "stream": "TransferItem"
+      "stream": "Transfer"
     },
     {
       "tap_stream_id": "OrderLine",
@@ -2055,6 +2107,111 @@
         "type": "object"
       },
       "stream": "OrderLine"
+    },
+    {
+      "tap_stream_id": "TransferItem",
+      "key_properties": [
+        "transferItemID"
+      ],
+      "schema": {
+        "properties": {
+          "transferItemID": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string",
+              "object"
+            ]
+          },
+          "toSend": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string",
+              "object"
+            ]
+          },
+          "toReceive": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string",
+              "object"
+            ]
+          },
+          "sent": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string",
+              "object"
+            ]
+          },
+          "received": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string",
+              "object"
+            ]
+          },
+          "sentValue": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string",
+              "object"
+            ]
+          },
+          "receivedValue": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string",
+              "object"
+            ]
+          },
+          "comment": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string",
+              "object"
+            ]
+          },
+          "timeStamp": {
+            "inclusion": "available",
+            "format": "date-time",
+            "type": [
+              "null",
+              "string",
+              "object"
+            ]
+          },
+          "transferID": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string",
+              "object"
+            ]
+          },
+          "itemID": {
+            "inclusion": "available",
+            "type": [
+              "null",
+              "string",
+              "object"
+            ]
+          }
+        },
+        "inclusion": "available",
+        "type": [
+          "object",
+          "string"
+        ]
+      },
+      "stream": "TransferItem"
     }
   ]
 }

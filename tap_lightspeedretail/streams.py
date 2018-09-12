@@ -14,6 +14,10 @@ def write_records(tap_stream_id, records):
     metrics(tap_stream_id, records)
 
 def sync_lists(ctx):
+    ctx.write_page("Transfer")
+    ctx.selected_stream_ids.remove("Transfer")
+    ctx.write_page("TransferItem")
+    ctx.selected_stream_ids.remove("TransferItem")
     for tap_stream_id in ctx.selected_stream_ids:
         ctx.write_page(tap_stream_id)
             
@@ -33,6 +37,8 @@ class Stream(object):
     OrderLine = [IDS.table12, ["orderLineID"]]
     Transfer = [IDS.table13, ["transferID"]]
     TransferItem = [IDS.table14, ["transferItemID"]]
+    VendorReturn = [IDS.table15, ["vendorReturnID"]]
+   
     
     def write_page(self, page):
         singer.write_records(self.tap_stream_id, page)

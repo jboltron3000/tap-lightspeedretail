@@ -1,72 +1,83 @@
 {
 	"title": "TransferItem",
-  	"type": "object",
+  	"type": ["object", "string"],
   	"properties":{
     	"transferItemID": {
       		"type": [
         		"null",
-        		"string"
+        		"string",
+        		"object"
       		]
     	},
     	"toSend": {
       		"type": [
         		"null",
-        		"string"
+        		"string",
+        		"object"
       		]
     	},
     	"toReceive": {
       		"type": [
         		"null",
-        		"string"
+        		"string",
+        		"object"
       		]
     	},
     	"sent": {
       		"type": [
         		"null",
-        		"string"
+        		"string",
+        		"object"
       		]
     	},
     	"received": {
       		"type": [
         		"null",
-        		"string"
+        		"string",
+        		"object"
       		]
     	},
     	"sentValue": {
       		"type": [
         		"null",
-        		"string"
+        		"string",
+        		"object"
       		]
     	},
     	"receivedValue": {
       		"type": [
         		"null",
-        		"string"
+        		"string",
+        		"object"
       		]
     	},
     	"comment": {
       		"type": [
         		"null",
-        		"string"
+        		"string",
+        		"object"
       		]
     	},
     	"timeStamp": {
       		"type": [
         		"null",
-     	   		"string"
+     	   		"string",
+        		"object"
       		],
       	"format": "date-time"
     	},
     	"transferID": {
       		"type": [
         		"null",
-        		"string"
+        		"string",
+        		"object"
       		]
     	},
      	"itemID": {
       		"type": [
         		"null",
-        		"string"
+        		"string",
+        		"object"
       		]
     	}
 	}

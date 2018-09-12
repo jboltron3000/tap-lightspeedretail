@@ -1,20 +1,8 @@
 {
 	"title": "Transfer",
-  	"type": "object",
+  	"type": ["object", "string"],
   	"properties":{
     	"transferID": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"sent": {
-      		"type": [
-        		"null",
-        		"string"
-      		]
-    	},
-    	"received": {
       		"type": [
         		"null",
         		"string"
@@ -39,45 +27,50 @@
       		],
       	"format": "date-time"
     	},
-    	"TransferFrom": {
-    		"sentOn" : {
-      			"type": [
-        			"null",
-        			"string"
-      			]
-    		},
-    		"employeeID" : {
-      			"type": [
-        			"null",
-        			"string"
-      			]
-    		},
-    		"shopID" : {
-      			"type": [
-        			"null",
-        			"string"
-      			]
-    		}
+    	"createTime": {
+      		"type": [
+        		"null",
+     	   		"string"
+      		],
+      	"format": "date-time"
     	},
-     	"TransferTo": {
-    		"needBy" : {
-      			"type": [
-        			"null",
-        			"string"
-      			]
-    		},
-    		"employeeID" : {
-      			"type": [
-        			"null",
-        			"string"
-      			]
-    		},
-    		"shopID" : {
-      			"type": [
-        			"null",
-        			"string"
-      			]
-    		}
+    	"status": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"sentOn": {
+      		"type": [
+        		"null",
+     	   		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"needBy": {
+      		"type": [
+        		"null",
+     	   		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"sendingShopID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"sentByEmployeeID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"receivingShopID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
     	}
 	}
 }

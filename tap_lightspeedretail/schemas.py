@@ -19,9 +19,11 @@ class IDS(object):
     table12 = "OrderLine"
     table13 = "Transfer"
     table14 = "TransferItem"
+    table15 = "VendorReturn"
+
 	
 
-stream_ids = ["Order", "Item", "Customer", "Sale", "SaleLine", "Shop", "Vendor", "Category", "ItemMatrix", "Employee", "Register", "Transfer", "TransferItem", "OrderLine"]
+stream_ids = ["Order", "Item", "VendorReturn", "Customer", "Sale", "SaleLine", "Shop", "Vendor", "Category", "ItemMatrix", "Employee", "Register", "Transfer", "OrderLine", "TransferItem"]
 
 pk_fields = {
     IDS.table1: ["orderID"],
@@ -37,7 +39,9 @@ pk_fields = {
 	IDS.table11: ["registerID"],
 	IDS.table12: ["orderLineID"],
 	IDS.table13: ["transferID"],
-	IDS.table14: ["transferItemID"]
+	IDS.table14: ["transferItemID"],
+	IDS.table15: ["vendorReturnID"],
+	
 	
 }
 ##

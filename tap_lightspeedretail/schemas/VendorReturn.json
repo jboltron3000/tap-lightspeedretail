@@ -1,0 +1,796 @@
+{
+	"title": "VendorReturn",
+  	"type": ["null", "object"],
+  	"properties": {
+  		"self": {
+      		"type": ["null", "string"],
+      		"format": "uri"
+    	},
+    	"vendorReturnID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"status": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"refNum": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"archived": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"sentDate": {
+      		"type": [
+        		"null",
+        		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"shipCost": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"otherCost": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"vendorID": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"shopID": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"noteID": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"Vendor" : {
+    	    "vendorID": {
+      		    "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	    },
+    	    "name": {
+      		   "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	    },
+    	    "archived": {
+      		    "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	    },
+    	    "accountNumber": {
+      		    "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	    },
+    	    "priceLevel": {
+      		    "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	    },
+    	    "updatePrice": {
+      		    "type": [
+        	        "null",
+        	        "string"
+      		    ]
+    	    },
+    	    "updateCost": {
+      		    "type": [
+        	        "null",
+        	        "string"
+      		    ]
+    	    },
+    	    "updateDescription": {
+      		    "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	    },
+    	    "shareSellThrough": {
+      		    "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	    },
+    	    "timeStamp": {
+      		    "type": [
+        		    "null",
+        		    "string"
+      		    ],
+      	    "format": "date-time"
+    	    },
+    	    "contactID": {
+      		    "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	    },
+    	    "noteID": {
+      		    "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	    },
+    	    "Contact" : {
+    	        "contactID" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "custom" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "noEmail" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "noPhone" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "noMail" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "timeStamp": {
+      		      "type": [
+        		  "null",
+        		  "string", 
+        		  "object"
+      		       ],
+      	       "format": "date-time"
+    	       },
+    	       "Addresses" : {
+    	           "ContactAddress" : {
+    	                "zip" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               }
+    	                }   
+    	            },
+    	        "Phones" : {
+    	            "ContactPhone" : {
+    	                "number" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               },
+      		            "useType" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               }
+    	            }   
+    	         },
+    	          "Emails" : {
+    	            "ContactEmail" : {
+    	                "address" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               },
+      		            "useType" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               }
+    	            }   
+    	         },
+    	         "Websites" : {
+    	             "type": [
+        		        "null",
+        		        "string"
+      		           ]
+    	         }
+    	       },
+    	    "Reps": {
+                "VendorRep": {
+                    "firstName" : { 
+                        "type": [
+        		            "null",
+        		            "string"
+      		            ]
+    	            },
+                    "lastName" : { 
+                        "type": [
+        		            "null",
+        		            "string"
+      		            ]
+    	            }
+    	        }
+    	    }
+    	},
+    	"Shop": {
+    	    "shopID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	    },
+    	   "name": {
+      		    "type": [
+        		"null",
+        		"string"
+      		]
+    	    },
+    	    "serviceRate": {
+      		    "type": [
+        		"null",
+        		"string"
+      		]
+    	    },
+    	    "timeZone": {
+      		    "type": [
+        		"null",
+        		"string"
+      		]
+    	    },
+    	    "taxLabor": {
+      		    "type": [
+        		"null",
+        		"string"
+      		]
+    	    },
+    	    "labelTitle": {
+      		   "type": [
+        	    "null",
+        	    "string"
+      		]
+    	},
+    	"labelMsrp": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"archived": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"timeStamp": {
+      		"type": [
+        		"null",
+        		"string"
+      		],
+      	"format": "date-time"
+    	},
+    	"companyRegistrationstring": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"vatNumber": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"zebraBrowserPrint": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"contactID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"taxCategoryID": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"receiptSetupID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"gatewayConfigID": {
+      		"type": [
+        		"null",
+        		"string"
+      		]
+    	},
+    	"priceLevelID": {
+      		"type": [
+        	"null",
+        	"string"
+      		]
+    	},
+    	"Contact" : {
+    	        "contactID" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "custom" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "noEmail" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "noPhone" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "noMail" : {
+      		      "type": [
+        		  "null",
+        		  "string"
+      		      ]
+      		    },
+      		    "timeStamp": {
+      		      "type": [
+        		  "null",
+        		  "string", 
+        		  "object"
+      		       ],
+      	       "format": "date-time"
+    	       },
+    	       "Addresses" : {
+    	           "ContactAddress" : {
+    	                "zip" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               }
+    	                }   
+    	            },
+    	        "Phones" : {
+    	            "ContactPhone" : {
+    	                "number" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               },
+      		            "useType" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               }
+    	            }   
+    	         },
+    	          "Emails" : {
+    	            "ContactEmail" : {
+    	                "address" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               },
+      		            "useType" : {
+    	                    "type": [
+        		            "null",
+        		            "string"
+      		                   ]
+      		               }
+    	            }   
+    	         },
+    	         "Websites" : {
+    	             "type": [
+        		        "null",
+        		        "string"
+      		           ]
+    	         }
+    	    }
+    	},
+    	"Note": {
+    	    "noteID": { 
+                "type": [
+        		    "null",
+        		    "string"
+      		      ]
+    	        },
+            "note": { 
+                "type": [
+        		    "null",
+        		    "string"
+      		      ]
+    	        },
+            "isPublic": { 
+                "type": [
+        		    "null",
+        		    "string"
+      		      ]
+    	        },
+            "timeStamp": {
+      		      "type": [
+        		  "null",
+        		  "string", 
+        		  "object"
+      		       ],
+      	       "format": "date-time"
+    	       }
+    	},
+        "VendorReturnItems": {
+            "VendorReturnItem": {
+                "vendorReturnItemID": {
+      		        "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	        },
+    	        "quantity": {
+      		        "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	        },
+    	        "cost": {
+      		        "type": [
+        		        "null",
+        		        "string"
+      		    ]
+    	        },
+    	        "vendorReturnID": {
+      		        "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	        },
+    	        "itemID": {
+      		        "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	        },
+    	        "orderID": {
+      		        "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	        },
+    	        "vendorReturnItemReasonID": {
+      		        "type": [
+        		    "null",
+        		    "string"
+      		    ]
+    	        },
+    	        "Item": {
+    	            "itemID": {
+      					"type": [
+        				"null",
+        				"string"
+      				]
+    			},
+    			"systemSku": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"defaultCost": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"avgCost": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"discountable": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"tax": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"archived": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"itemType": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"serialized": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"description": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"modelYear": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"upc": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"ean": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"customSku": {
+      				"type": [
+        			"null",
+        			"string"
+    	  			]
+    			},
+    			"manufacturerSku": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"createTime": {
+      				"type": [
+        			"null",
+        			"string"
+      				],
+      			"format": "date-time"
+    			},
+    			"timeStamp": {
+      				"type": [
+        			"null",
+        			"string"
+      				],
+      			"format": "date-time"
+    			},
+    			"publishToEcom": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"categoryID": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"taxClassID": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"departmentID": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"itemMatrixID": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"manufacturerID": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"seasonID": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"defaultVendorID": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"itemECommerceID": {
+      				"type": [
+        			"null",
+        			"string"
+      				]
+    			},
+    			"ItemVendorNums": {
+      				"ItemVendorNum": {
+      				    "itemVendorNumID": {
+      						"type": [
+        					"null",
+        					"string"
+      						]
+    					},
+    					"value": {
+      						"type": [
+        					"null",
+        					"string"
+      						]
+    					},
+    					"timeStamp": {
+      						"type": [
+        					"null",
+        					"string"
+      						],
+      					"format": "date-time"
+    					},
+    					"itemID": {
+      						"type": [
+        					"null",
+        					"string"
+      						]
+    					},
+    					"catalogVendorItemID": {
+      						"type": [
+        					"null",
+        					"string"
+      						]
+    					},
+    					"vendorID": {
+      						"type": [
+        					"null",
+        					"string"
+      						]
+    					}
+    				}
+    			},
+    			"Prices": {
+        			"ItemPrice": {
+          				"type": [
+            			"null",
+            			"array"
+          				]
+        			},
+        			"amount": {
+          				"type": [
+            			"null",
+            			"string"
+          				]
+        			},
+        			"useTypeID": {
+          				"type": [
+            			"null",
+            			"string"
+          				]
+        			},
+        			"useType": {
+          				"type": [
+            			"null",
+            			"string"
+          				]
+        			}
+      			}
+    	    },
+    	    "VendorReturnItemReason": {
+    	    	"vendorReturnItemReasonID": {
+          			"type": [
+            			"null",
+            			"string"
+          				]
+        			},
+        		"reason": {
+          			"type": [
+            			"null",
+            			"string"
+          				]
+        			},
+        		"defaultSelected": {
+          			"type": [
+            			"null",
+            			"string"
+          				]
+        			},
+        		"archived": {
+          			"type": [
+            			"null",
+            			"string"
+          				]
+        			},
+        		"createTime": {
+      				"type": [
+        				"null",
+        			 	"string"
+      				],
+      				"format": "date-time"
+    				},
+        		"timeStamp": {
+      				"type": [
+        				"null",
+        				"string"
+      					],
+      			"format": "date-time"
+    			},
+        		"isSystem": {
+          			"type": [
+            			"null",
+            			"string"
+          				]
+        			},
+        		"sortOrder": {
+          			"type": [
+            			"null",
+            			"string"
+          				]
+        			}
+    	    }
+        }
+    }
+}	
+}

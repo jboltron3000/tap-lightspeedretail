@@ -65,6 +65,7 @@ def main():
         ctx.selected_stream_ids = set(
             [s.tap_stream_id for s in ctx.catalog.streams]
         )
+        #pdb.set_trace()
         sync(ctx)
 
 

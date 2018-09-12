@@ -17,7 +17,7 @@ def convert(xml_file, xml_attribs=True):
     d = xmltodict.parse(xml_file)
     return json.dumps(d)
     
-TIME_BETWEEN_REQUESTS = timedelta(microseconds=10)
+TIME_BETWEEN_REQUESTS = timedelta(seconds=0.4)
 
 def _join(a, b):
     return a.rstrip("/") + b.lstrip("/")
@@ -89,8 +89,13 @@ class Client(object):
             timer.tags[metrics.Tag.http_status_code] = response.status_code
         if response.status_code == 429:
             raise RateLimitException()
+        elif response.status_code != 200:
+            LOGGER.error(response.text)
+            raise RuntimeError('Stream returned code {}, exiting!'
+                               .format(response.status_code))
         response.raise_for_status()
         #pdb.set_trace()
+        
         return response.json()
         
    
