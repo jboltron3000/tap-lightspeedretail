@@ -96,37 +96,38 @@ class Context(object):
             start_date = singer.utils.strptime_with_tz(self.state[stream_id])
         end_date = singer.utils.now()
         if str(stream_id) == "Item":
-            start_date = start_date.strftime('%Y-%m-%d')
+            start_date = start_date.strftime('%m/%d/%YT%H:%M:%S')
         else:
-            start_date = start_date.strftime('%m/%d/%Y')
-        end_date = end_date.strftime('%m/%d/%Y')
+            start_date = start_date.strftime('%m/%d/%YT%H:%M:%S')
+        end_date = end_date.strftime('%m/%d/%YT%H:%M:%S')
         relation = ""
         if str(stream_id) == "Item":
-            relation = "&load_relations=%5B%22ItemShops%22%2C+%22ItemAttributes%22%2C+%22Tags%22%2C+%22TaxClass%22%5D&or=timeStamp%3D%3E%2C" +start_date + "%7CItemShops.timeStamp%3D%3E%2C" +start_date
+            relation = "&load_relations=%5B%22ItemShops%22%2C+%22ItemAttributes%22%2C+%22Tags%22%2C+%22TaxClass%22%5D&archived=true&or=timeStamp%3D%3E%2C" +start_date + "%7CItemShops.timeStamp%3D%3E%2C" +start_date
         elif str(stream_id) == "Shop":
             relation = ""
         elif str(stream_id) == "Transfer":
-            relation = "&timeStamp=%3E%3D," +start_date
+            relation = "&orderby=transferID&archived=true&timeStamp=%3E%3D," +start_date
             stream_id = "Inventory/Transfer"
         elif str(stream_id) == "VendorReturn":
-            relation = "&timeStamp=%3E%3D," +start_date
+            relation = "&archived=true&timeStamp=%3E%3D," +start_date
             stream_id = "DisplayTemplate/VendorReturn"
         elif str(stream_id) == "TransferItem":
-            relation = "&timeStamp=%3E%3D," +start_date
+            self.id.add('100')
+            relation = "&archived=true&timeStamp=%3E%3D," +start_date
             transferid = self.id.pop()
             stream_id = "Inventory/Transfer/" + transferid + "/TransferItems"
         elif str(stream_id) == "Customer":
-            relation = "&load_relations=all&timeStamp=%3E%3D," +start_date
+            relation = "&archived=true&load_relations=all&timeStamp=%3E%3D," +start_date
         elif str(stream_id) == "SaleLine":
-            relation = "&load_relations=%5B%22TaxClass%22%5D&timeStamp=%3E%3D," +start_date
+            relation = "&archived=true&load_relations=%5B%22TaxClass%22%5D&timeStamp=%3E%3D," +start_date
         elif str(stream_id) == "ItemMatrix":
-            relation = "&load_relations=%5B%22TaxClass%22%5D&timeStamp=%3E%3D," +start_date
+            relation = "&archived=true&load_relations=%5B%22TaxClass%22%5D&timeStamp=%3E%3D," +start_date
         elif str(stream_id) == "Employee":
-            relation = "&load_relations=%5B%22EmployeeRole%22%5D&timeStamp=%3E%3D," +start_date
+            relation = "&archived=true&load_relations=%5B%22EmployeeRole%22%5D&timeStamp=%3E%3D," +start_date
         elif str(stream_id) == "Register":
             relation = ""
         else:
-            relation = "&timeStamp=%3E%3D," +start_date
+            relation = "&archived=true&timeStamp=%3E%3D," +start_date
         while (int(count) > int(offset) and (int(count) - int(offset)) >= -100) or (stream_id == ("Inventory/Transfer/" + transferid + "/TransferItems") and len(self.id) > 1):
             page = self.client.request(stream_id, "GET", "https://api.merchantos.com/API/Account/" + str(self.config['customer_ids']) + "/" + str(stream_id) + ".json?offset=" + str(offset) + relation)
             if stream_id == "Inventory/Transfer/" + transferid + "/TransferItems":
