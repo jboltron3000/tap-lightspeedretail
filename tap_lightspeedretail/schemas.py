@@ -23,7 +23,7 @@ class IDS(object):
 
 	
 
-stream_ids = ["Order", "Item", "VendorReturn", "Customer", "Sale", "SaleLine", "Shop", "Vendor", "Category", "ItemMatrix", "Employee", "Register", "Transfer", "OrderLine", "TransferItem"]
+stream_ids = ["Order", "OrderLine", "Register", "Item", "Customer", "Sale", "SaleLine", "Shop", "Vendor", "VendorReturn", "Category", "ItemMatrix", "Employee", "Register", "Transfer", "TransferItem"]
 
 pk_fields = {
     IDS.table1: ["orderID"],

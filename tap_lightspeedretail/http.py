@@ -17,7 +17,7 @@ def convert(xml_file, xml_attribs=True):
     d = xmltodict.parse(xml_file)
     return json.dumps(d)
     
-TIME_BETWEEN_REQUESTS = timedelta(seconds=0.4)
+TIME_BETWEEN_REQUESTS = timedelta(seconds=.7)
 
 def _join(a, b):
     return a.rstrip("/") + b.lstrip("/")

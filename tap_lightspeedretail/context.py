@@ -94,41 +94,44 @@ class Context(object):
         else:
             first_time = False
             start_date = singer.utils.strptime_with_tz(self.state[stream_id])
+            to_date = start_date + timedelta(+25)
         end_date = singer.utils.now()
         if str(stream_id) == "Item":
-            start_date = start_date.strftime('%Y-%m-%d')
+            start_date = start_date.strftime('%Y-%m-%dT%H:%M:%S')
         else:
-            start_date = start_date.strftime('%m/%d/%Y')
-        end_date = end_date.strftime('%m/%d/%Y')
+            start_date = start_date.strftime('%m/%d/%YT%H:%M:%S')
+        end_date = end_date.strftime('%m/%d/%YT%H:%M:%S')
         relation = ""
         if str(stream_id) == "Item":
             relation = "&load_relations=%5B%22ItemShops%22%2C+%22ItemAttributes%22%2C+%22Tags%22%2C+%22TaxClass%22%5D&or=timeStamp%3D%3E%2C" +start_date + "%7CItemShops.timeStamp%3D%3E%2C" +start_date
         elif str(stream_id) == "Shop":
             relation = ""
         elif str(stream_id) == "Transfer":
-            relation = "&timeStamp=%3E%3D," +start_date
+            relation = "&archived=true&orderby=transferID&timeStamp=%3E," +start_date 
             stream_id = "Inventory/Transfer"
         elif str(stream_id) == "VendorReturn":
-            relation = "&timeStamp=%3E%3D," +start_date
+            relation = "&timeStamp=%3E," +start_date
             stream_id = "DisplayTemplate/VendorReturn"
         elif str(stream_id) == "TransferItem":
-            relation = "&timeStamp=%3E%3D," +start_date
+            self.id.add('100')
+            relation = "&archived=true&orderby=transferItemID&timeStamp=%3E," +start_date 
             transferid = self.id.pop()
             stream_id = "Inventory/Transfer/" + transferid + "/TransferItems"
         elif str(stream_id) == "Customer":
-            relation = "&load_relations=all&timeStamp=%3E%3D," +start_date
+            relation = "&load_relations=all&timeStamp=%3E," +start_date
         elif str(stream_id) == "SaleLine":
-            relation = "&load_relations=%5B%22TaxClass%22%5D&timeStamp=%3E%3D," +start_date
+            relation = "&load_relations=%5B%22TaxClass%22%5D&timeStamp=%3E," +start_date
         elif str(stream_id) == "ItemMatrix":
-            relation = "&load_relations=%5B%22TaxClass%22%5D&timeStamp=%3E%3D," +start_date
+            relation = "&load_relations=%5B%22TaxClass%22%5D&timeStamp=%3E," +start_date
         elif str(stream_id) == "Employee":
-            relation = "&load_relations=%5B%22EmployeeRole%22%5D&timeStamp=%3E%3D," +start_date
+            relation = "&load_relations=%5B%22EmployeeRole%22%5D&timeStamp=%3E," +start_date
         elif str(stream_id) == "Register":
             relation = ""
         else:
-            relation = "&timeStamp=%3E%3D," +start_date
+            relation = "&timeStamp=%3E," +start_date
         while (int(count) > int(offset) and (int(count) - int(offset)) >= -100) or (stream_id == ("Inventory/Transfer/" + transferid + "/TransferItems") and len(self.id) > 1):
             page = self.client.request(stream_id, "GET", "https://api.merchantos.com/API/Account/" + str(self.config['customer_ids']) + "/" + str(stream_id) + ".json?offset=" + str(offset) + relation)
+            #pdb.set_trace()
             if stream_id == "Inventory/Transfer/" + transferid + "/TransferItems":
                 stream_id = "TransferItem"
                 if len(self.id) < 1: 
@@ -141,7 +144,6 @@ class Context(object):
                 stream_id = "VendorReturn"
             info = page['@attributes']
             count = info['count']
-            offset = int(info['offset']) + 100
             if int(count) == 0:
                 offset = 0
                 if len(self.id) < 1: 
@@ -154,7 +156,10 @@ class Context(object):
                 offset = 300
                 data = page[str(stream_id)]  
             else:
+                offset = int(info['offset']) + 100
                 data = page[str(stream_id)]  
+            #if len(data) != 100:
+                #pdb.set_trace()
             for key in data:
                 if str(stream_id) == "Register": 
                 	pass
@@ -168,6 +173,8 @@ class Context(object):
                          counter.increment(len(page))
                     continue
                 elif str(stream_id) == "Transfer": 
+                    #if key['transferID'] in self.id:
+                        #pdb.set_trace()
                     self.id.add(key['transferID'])
                     if key['timeStamp'] >= ext_time:
                         ext_time = key['timeStamp']
