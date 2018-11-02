@@ -46,7 +46,6 @@ class Context(object):
 
     def bookmark(self, path, stream_id):
         bookmark = self.state
-        #pdb.set_trace()
         for p in path:
             if p not in bookmark:
                 if self.first_time:
@@ -80,30 +79,11 @@ class Context(object):
             val = self.config["start_date"]
             self.set_bookmark(path, val)
         return val
-        
-
-    def write_page(self, stream_id):
-        self.recurse = False
-        transferid = ""
-        count = 100
-        offset = 0
-        path = []
-        ext_time = self.config['start_date']
-        if len(self.state) < 14:
-            start_date = singer.utils.strptime_with_tz(self.config['start_date'])
-        else:
-            first_time = False
-            start_date = singer.utils.strptime_with_tz(self.state[stream_id])
-            to_date = start_date + timedelta(+25)
-        end_date = singer.utils.now()
-        if str(stream_id) == "Item":
-            start_date = start_date.strftime('%Y-%m-%dT%H:%M:%S')
-        else:
-            start_date = start_date.strftime('%m/%d/%YT%H:%M:%S')
-        end_date = end_date.strftime('%m/%d/%YT%H:%M:%S')
+    
+    def create_relation(self, stream_id, transferid, start_date):
         relation = ""
         if str(stream_id) == "Item":
-            relation = "&load_relations=%5B%22ItemShops%22%2C+%22ItemAttributes%22%2C+%22Tags%22%2C+%22TaxClass%22%5D&or=timeStamp%3D%3E%2C" +start_date + "%7CItemShops.timeStamp%3D%3E%2C" +start_date
+            relation = "&load_relations=%5B%22ItemShops%22%2C+%22ItemAttributes%22%2C+%22Tags%22%2C+%22TaxClass%22%5D&archived=true&or=timeStamp%3D%3E%2C" +start_date + "%7CItemShops.timeStamp%3D%3E%2C" +start_date
         elif str(stream_id) == "Shop":
             relation = ""
         elif str(stream_id) == "Transfer":
@@ -112,10 +92,8 @@ class Context(object):
         elif str(stream_id) == "VendorReturn":
             relation = "&timeStamp=%3E," +start_date
             stream_id = "DisplayTemplate/VendorReturn"
-        elif str(stream_id) == "TransferItem":
-            self.id.add('100')
+        elif str(stream_id) == "TransferItem" or str(stream_id) == "Inventory/Transfer/" + transferid + "/TransferItems":
             relation = "&archived=true&orderby=transferItemID&timeStamp=%3E," +start_date 
-            transferid = self.id.pop()
             stream_id = "Inventory/Transfer/" + transferid + "/TransferItems"
         elif str(stream_id) == "Customer":
             relation = "&load_relations=all&timeStamp=%3E," +start_date
@@ -129,11 +107,29 @@ class Context(object):
             relation = ""
         else:
             relation = "&timeStamp=%3E," +start_date
+        return relation
+    
+    
+    def paginate(self, offset, count, ext_time, path, stream_id, transferid): 
+        if len(self.state) < 14:
+            start_date = singer.utils.strptime_with_tz(self.config['start_date'])
+        else:
+            first_time = False
+            start_date = singer.utils.strptime_with_tz(self.state[stream_id])
+        end_date = singer.utils.now()
+        if str(stream_id) == "Item":
+            start_date = start_date.strftime('%Y-%m-%dT%H:%M:%S')
+            ext_time = start_date
+        else:
+            start_date = start_date.strftime('%m/%d/%YT%H:%M:%S')
+            ext_time = start_date
         while (int(count) > int(offset) and (int(count) - int(offset)) >= -100) or (stream_id == ("Inventory/Transfer/" + transferid + "/TransferItems") and len(self.id) > 1):
-            page = self.client.request(stream_id, "GET", "https://api.merchantos.com/API/Account/" + str(self.config['customer_ids']) + "/" + str(stream_id) + ".json?offset=" + str(offset) + relation)
-            #pdb.set_trace()
+            url = "https://api.merchantos.com/API/Account/" + str(self.config['customer_ids']) + "/" + str(stream_id) + ".json?offset="
+            relation = self.create_relation(stream_id, transferid, start_date)
+            page = self.client.request(stream_id, "GET", (url + str(offset) + relation))
             if stream_id == "Inventory/Transfer/" + transferid + "/TransferItems":
                 stream_id = "TransferItem"
+                #pdb.set_trace()
                 if len(self.id) < 1: 
                     break
                 else:
@@ -158,8 +154,6 @@ class Context(object):
             else:
                 offset = int(info['offset']) + 100
                 data = page[str(stream_id)]  
-            #if len(data) != 100:
-                #pdb.set_trace()
             for key in data:
                 if str(stream_id) == "Register": 
                 	pass
@@ -173,8 +167,6 @@ class Context(object):
                          counter.increment(len(page))
                     continue
                 elif str(stream_id) == "Transfer": 
-                    #if key['transferID'] in self.id:
-                        #pdb.set_trace()
                     self.id.add(key['transferID'])
                     if key['timeStamp'] >= ext_time:
                         ext_time = key['timeStamp']
@@ -184,8 +176,11 @@ class Context(object):
                 elif str(stream_id) == "Item": 
                     i = 0
                     for i in range(len(key['ItemShops']['ItemShop'])):
+                        #pdb.set_trace()
                         if key['ItemShops']['ItemShop'][i]['timeStamp'] >= ext_time:
-                            ext_time = key['ItemShops']['ItemShop'][i]['timeStamp']
+                            ext_time =  key['ItemShops']['ItemShop'][i]['timeStamp']
+                    if key['timeStamp'] >= ext_time:
+                        ext_time = key['timeStamp']
                 else: 
                     if key['timeStamp'] >= ext_time:
                         ext_time = key['timeStamp']
@@ -200,14 +195,24 @@ class Context(object):
                 stream_id = "Inventory/Transfer"
             elif stream_id == "TransferItem":
                 offset = 0
+                if len(self.id) < 1:
+                    pass
+                else:
+                    transferid = self.id.pop()
                 stream_id = "Inventory/Transfer/" + transferid + "/TransferItems"
             elif stream_id == "VendorReturn":
                 stream_id = "DisplayTemplate/VendorReturn"
     
-            
-            
-            
-                
+    
+    def write_page(self, stream_id):
+        self.recurse = False
+        transferid = "45"
+        count = 100
+        offset = 0
+        path = []
+        ext_time = self.config['start_date']
+        self.paginate(offset, count, ext_time, path, stream_id, transferid) 
+        
             
     def write_state(self):
         singer.write_state(self.state)
