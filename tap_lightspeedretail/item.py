@@ -19,7 +19,7 @@ class Item(Stream):
         relation = "&load_relations=%5B%22ItemShops%22%2C+%22ItemAttributes%22%2C+%22Tags%22%2C+%22TaxClass%22%5D&archived=true&or=timeStamp%3D%3E%2C" +start_date + "%7CItemShops.timeStamp%3D%3E%2C" +start_date
         return relation
         
-    def paginate(self, offset, count, ext_time, path, stream_id, transferid):
+    def paginate(self, offset, count, ext_time, path, stream_id):
         if len(self.state) < 14:
             start_date = singer.utils.strptime_with_tz(self.config['start_date'])
         else:
@@ -27,7 +27,7 @@ class Item(Stream):
             start_date = singer.utils.strptime_with_tz(self.state[stream_id])
         start_date = start_date.strftime('%Y-%m-%dT%H:%M:%S')
         ext_time = start_date 
-        while (int(count) > int(offset) and (int(count) - int(offset)) >= -100) or (stream_id == ("Inventory/Transfer/" + transferid + "/TransferItems") and len(self.id) > 1):    
+        while (int(count) > int(offset) and (int(count) - int(offset)) >= -100):    
             url = "https://api.merchantos.com/API/Account/" + str(self.config['customer_ids']) + "/" + str(stream_id) + ".json?offset="
             relation = self.create_relation(start_date)
             page = self.client.request(stream_id, "GET", (url + str(offset) + relation))

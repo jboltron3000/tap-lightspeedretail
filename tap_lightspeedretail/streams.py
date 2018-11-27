@@ -30,20 +30,20 @@ def write_records(tap_stream_id, records):
 
 def sync_lists(ctx):
     #pdb.set_trace()
-    #Transfer(ctx)
-    #Shop(ctx)
-    #VendorReturn(ctx)
-    #Vendor(ctx)
-    #Item(ctx)
+    Transfer(ctx)
+    Shop(ctx)
+    VendorReturn(ctx)
+    Vendor(ctx)
+    Item(ctx)
     Order(ctx)
     #OrderLine(ctx)
-    #Sale(ctx)
-    #SaleLine(ctx)
-    #Customer(ctx)
-    #Register(ctx)
-    #Category(ctx)
-    #Employee(ctx)
-    #ItemMatrix(ctx)        
+    Sale(ctx)
+    SaleLine(ctx)
+    Customer(ctx)
+    Register(ctx)
+    Category(ctx)
+    Employee(ctx)
+    ItemMatrix(ctx)        
 
 class Stream(object):
     Order = [IDS.table1, ["orderID"]]

@@ -23,7 +23,7 @@ class VendorReturn(Stream):
             stream_id = "DisplayTemplate/VendorReturn"
         return relation
         
-    def paginate(self, offset, count, ext_time, path, stream_id, transferid):
+    def paginate(self, offset, count, ext_time, path, stream_id):
         if len(self.state) < 14:
             start_date = singer.utils.strptime_with_tz(self.config['start_date'])
         else:
@@ -33,7 +33,7 @@ class VendorReturn(Stream):
         ext_time = start_date 
         if stream_id == "VendorReturn":
             stream_id = "DisplayTemplate/VendorReturn"
-        while (int(count) > int(offset) and (int(count) - int(offset)) >= -100) or (stream_id == ("Inventory/Transfer/" + transferid + "/TransferItems") and len(self.id) > 1):    
+        while (int(count) > int(offset) and (int(count) - int(offset)) >= -100):    
             url = "https://api.merchantos.com/API/Account/" + str(self.config['customer_ids']) + "/" + str(stream_id) + ".json?offset="
             if stream_id == "DisplayTemplate/VendorReturn":
                 stream_id = "VendorReturn"
