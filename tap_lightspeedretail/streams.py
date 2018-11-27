@@ -36,7 +36,7 @@ def sync_lists(ctx):
     Vendor(ctx)
     Item(ctx)
     Order(ctx)
-    #OrderLine(ctx)
+    OrderLine(ctx)
     Sale(ctx)
     SaleLine(ctx)
     Customer(ctx)

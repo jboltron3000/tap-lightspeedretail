@@ -17,7 +17,7 @@ class OrderLine(Stream):
         super().write_page('OrderLine')
         
     def create_relation(self, start_date):
-        relation = "" 
+        relation = "&timeStamp=%3E," +start_date
         return relation
         
     def paginate(self, offset, count, ext_time, path, stream_id):
