@@ -1,6 +1,7 @@
 import singer
 from .schemas import IDS
 import pdb
+from datetime import datetime, date, timedelta
 from .context import *
 from .category import Category
 from .customer import Customer
@@ -30,17 +31,22 @@ def write_records(tap_stream_id, records):
 
 def sync_lists(ctx):
     #pdb.set_trace()
+    now = datetime.utcnow()
+    now = now.strftime('%H')
+    if int(now) % 2 == 0:
+        Order(ctx)
+    if int(now) % 6 == 0:
+        VendorReturn(ctx)
+        Shop(ctx)
+        Register(ctx)
+    else:
+        pass
     Transfer(ctx)
-    Shop(ctx)
-    VendorReturn(ctx)
     Vendor(ctx)
     Item(ctx)
-    Order(ctx)
-    OrderLine(ctx)
     Sale(ctx)
     SaleLine(ctx)
     Customer(ctx)
-    Register(ctx)
     Category(ctx)
     Employee(ctx)
     ItemMatrix(ctx)        
