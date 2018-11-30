@@ -30,7 +30,6 @@ def write_records(tap_stream_id, records):
     metrics(tap_stream_id, records)
 
 def sync_lists(ctx):
-    #pdb.set_trace()
     now = datetime.utcnow()
     now = now.strftime('%H')
     if int(now) % 2 == 0:
@@ -41,16 +40,15 @@ def sync_lists(ctx):
         Register(ctx)
     else:
         pass
-    Order(ctx)
-    #Transfer(ctx)
-    #Vendor(ctx)
-    #Item(ctx)
-    #Sale(ctx)
-    #SaleLine(ctx)
-    #Customer(ctx)
-    #Category(ctx)
-    #Employee(ctx)
-    #ItemMatrix(ctx)        
+    Transfer(ctx)
+    Vendor(ctx)
+    Item(ctx)
+    Sale(ctx)
+    SaleLine(ctx)
+    Customer(ctx)
+    Category(ctx)
+    Employee(ctx)
+    ItemMatrix(ctx)        
 
 class Stream(object):
     Order = [IDS.table1, ["orderID"]]
