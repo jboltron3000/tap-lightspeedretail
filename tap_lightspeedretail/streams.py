@@ -32,9 +32,10 @@ def write_records(tap_stream_id, records):
 def sync_lists(ctx):
     now = datetime.utcnow()
     now = now.strftime('%H')
-    if int(now) % 2 == 0:
+    then = now.strftime('%M')
+    if int(now) % 2 == 0 and int(then) < 10:
         Order(ctx)
-    if int(now) % 6 == 0:
+    if int(now) % 6 == 0 and int(then) < 10:
         VendorReturn(ctx)
         Shop(ctx)
         Register(ctx)
