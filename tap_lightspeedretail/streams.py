@@ -41,15 +41,16 @@ def sync_lists(ctx):
         Register(ctx)
     else:
         pass
-    Transfer(ctx)
-    Vendor(ctx)
-    Item(ctx)
-    Sale(ctx)
-    SaleLine(ctx)
-    Customer(ctx)
-    Category(ctx)
-    Employee(ctx)
-    ItemMatrix(ctx)        
+    Order(ctx)
+    #Transfer(ctx)
+    #Vendor(ctx)
+    #Item(ctx)
+    #Sale(ctx)
+    #SaleLine(ctx)
+    #Customer(ctx)
+    #Category(ctx)
+    #Employee(ctx)
+    #ItemMatrix(ctx)        
 
 class Stream(object):
     Order = [IDS.table1, ["orderID"]]

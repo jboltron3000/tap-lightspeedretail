@@ -10,4 +10,4 @@ class generate_access_token():
     }
 
     r = requests.post('https://cloud.lightspeedapp.com/oauth/access_token.php', data=payload).json()
-    print(r['access_token'])
+    print(r)

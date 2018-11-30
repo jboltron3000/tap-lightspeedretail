@@ -45,7 +45,7 @@ class Order(Stream):
             else:
                 offset = int(info['offset']) + 100
                 data = page[str(stream_id)]  
-            for key in data:
+            for key in list(data):
                 #pdb.set_trace()
                 if 'OrderLines' not in key:
                     pass
@@ -57,6 +57,7 @@ class Order(Stream):
                         else:
                             item['batchid'] = num
                 if type(key) == str:
+                    data['batchid'] = num
                     if data['timeStamp'] >= ext_time:
                         ext_time = data['timeStamp']
                     else:
@@ -66,6 +67,7 @@ class Order(Stream):
                          counter.increment(len(page))
                     continue
                 elif str(stream_id) == "Order": 
+                    key['batchid'] = num
                     if key['timeStamp'] >= ext_time:
                         ext_time = key['timeStamp']
                     else:

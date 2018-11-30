@@ -23,11 +23,12 @@ TIME_BETWEEN_REQUESTS = timedelta(seconds=1)
 def _join(a, b):
     return a.rstrip("/") + b.lstrip("/")
 
-def generate_access_token():
+def generate_access_token(config):
+    #pdb.set_trace()
     payload = {
-        'refresh_token': '61c11da3041a354016f035be607de4b07324207d',
-        "client_id": "1401747925fa658f4138f61cba102eca7f869d3eab5fcc49811b2f1c4f8cc2f3",
-        "client_secret": "0a8170d3b1d6bbae3c1cb0aeb56fc60e87c1002199414b21151f72f806e38eaf",
+        'refresh_token': config.get("refresh_token"),
+        "client_id": config.get("oauth_client_id"),
+        "client_secret": config.get("oauth_client_secret"),
         'grant_type': 'refresh_token',
     }
 
@@ -37,10 +38,10 @@ def generate_access_token():
 
 class Client(object):
     def __init__(self, config):
-        #pdb.set_trace()
        	self.user_agent = config.get("user_agent")
         self.base_url = ""
         self.auth = None
+        self.payload = generate_access_token(config)
         self.session = requests.Session()
         self.next_request_at = datetime.now()
            		
@@ -58,7 +59,7 @@ class Client(object):
 
     def _headers(self, headers):
         headers = headers.copy()
-        headers["Authorization"] = self.user_agent + str(generate_access_token())
+        headers["Authorization"] = self.user_agent + self.payload
         return headers
 	
     def send(self, method, path, headers={}, **kwargs):
