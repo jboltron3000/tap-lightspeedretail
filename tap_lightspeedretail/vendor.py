@@ -12,7 +12,6 @@ from .context import Stream
 
 class Vendor(Stream):
     def __init__(self, Stream):
-        #pdb.set_trace()
         super().__init__(Stream.config, Stream.state)
         super().write_page('Vendor')
         
