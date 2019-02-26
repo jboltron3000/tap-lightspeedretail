@@ -18,7 +18,7 @@ class Order(Stream):
         super().write_page('Order')
         
     def create_relation(self, start_date):
-        relation = "&archived=true&load_relations=%5B%22OrderLines%22%5D"
+        relation = "&archived=true&load_relations=%5B%22OrderLines%22%5D&timeStamp=%3E," +start_date
         return relation
         
     def paginate(self, offset, count, ext_time, path, stream_id):
@@ -49,6 +49,13 @@ class Order(Stream):
                 #pdb.set_trace()
                 if 'OrderLines' not in key:
                     pass
+                elif int(count) == 1: 
+                    dict = data['OrderLines']['OrderLine']
+                    for item in list(dict):
+                        if type(item) == str:
+                            dict['batchid'] = num
+                        else:
+                            item['batchid'] = num
                 else:
                     dict = key['OrderLines']['OrderLine']
                     for item in list(dict):

@@ -34,14 +34,13 @@ def sync_lists(ctx):
     now = now.strftime('%H:%M')
     hour = now[:2]
     minute = now[-2:]
-    if int(hour) % 2 == 0 and int(minute) >= 45:
-        Order(ctx)
     if int(hour) % 6 == 0 and int(minute) >= 45:
         VendorReturn(ctx)
         Shop(ctx)
         Register(ctx)
     else:
-        pass
+        pass 
+    Order(ctx)
     Transfer(ctx)
     Vendor(ctx)
     Item(ctx)
