@@ -18,7 +18,7 @@ def convert(xml_file, xml_attribs=True):
     return json.dumps(d)
     
 
-TIME_BETWEEN_REQUESTS = timedelta(seconds=1)
+TIME_BETWEEN_REQUESTS = timedelta(seconds=1.2)
 
 def _join(a, b):
     return a.rstrip("/") + b.lstrip("/")
@@ -44,7 +44,7 @@ class Client(object):
         self.payload = generate_access_token(config)
         self.session = requests.Session()
         self.next_request_at = datetime.now()
-           		
+        self.config = config
    
     def prepare_and_send(self, request):
         if self.user_agent:
@@ -92,6 +92,10 @@ class Client(object):
             timer.tags[metrics.Tag.http_status_code] = response.status_code
         if response.status_code == 429:
             raise RateLimitException()
+        elif response.status_code == 401:
+            self.payload = generate_access_token(self.config)
+            response = self.request(tap_stream_id, *args, **kwargs)
+            return response
         elif response.status_code != 200:
             LOGGER.error(response.text)
             raise RuntimeError('Stream returned code {}, exiting!'
