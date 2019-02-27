@@ -34,22 +34,22 @@ def sync_lists(ctx):
     now = now.strftime('%H:%M')
     hour = now[:2]
     minute = now[-2:]
-    #if int(hour) % 6 == 0 and int(minute) >= 45:
-        #VendorReturn(ctx)
-        #Shop(ctx)
-        #Register(ctx)
-    #else:
-        #pass 
-    #Order(ctx)
-    #Transfer(ctx)
-    #Vendor(ctx)
-    #Item(ctx)
+    if int(hour) % 6 == 0 and int(minute) >= 45:
+        VendorReturn(ctx)
+        Shop(ctx)
+        Register(ctx)
+    else:
+        pass 
+    Order(ctx)
+    Transfer(ctx)
+    Vendor(ctx)
+    Item(ctx)
     Sale(ctx)
-    #SaleLine(ctx)
-    #Customer(ctx)
-    #Category(ctx)
-    #Employee(ctx)
-    #ItemMatrix(ctx)        
+    SaleLine(ctx)
+    Customer(ctx)
+    Category(ctx)
+    Employee(ctx)
+    ItemMatrix(ctx)        
 
 class Stream(object):
     Order = [IDS.table1, ["orderID"]]
