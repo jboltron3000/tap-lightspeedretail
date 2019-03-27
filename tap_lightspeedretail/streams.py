@@ -45,7 +45,6 @@ def sync_lists(ctx):
     Vendor(ctx)
     Item(ctx)
     Sale(ctx)
-    SaleLine(ctx)
     Customer(ctx)
     Category(ctx)
     Employee(ctx)

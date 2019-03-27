@@ -16,7 +16,7 @@ class Vendor(Stream):
         super().write_page('Vendor')
         
     def create_relation(self, start_date):
-        relation = "&timeStamp=%3E," +start_date
+        relation = "archived=true&load_relations=%5B%22Contact%22%5D&timeStamp=%3E," +start_date
         return relation
         
     def paginate(self, offset, count, ext_time, path, stream_id):
