@@ -1,3 +1,0 @@
-sudo yum install python34-devel
-tap-lightspeedretail -c tap_lightspeedretail/config.json --state state.json --catalog properties.json | target-stitch --config config.json > tap_lightspeedretail_log
-"Order", "Item", "VendorReturn", "Customer", "Sale", "SaleLine", "Shop", "Vendor", "Category", "ItemMatrix", "Employee", "Register", 
